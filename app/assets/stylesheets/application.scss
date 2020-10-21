@@ -1,14 +1,103 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- */
- @import "bootstrap";
+@import "bootstrap";
+
+$main-color: #CC66FF;
+
+/*homepage*/
+.jumbotron { 
+  background:url(sharemusic_top.jpg) center no-repeat; background-size: cover;
+  margin-bottom: 0;
+  h1 {
+    color: white;
+    opacity: 0.8;
+    text-align: center;
+  }
+  .home-btn {
+    text-align: center;
+    margin-top: 250px;
+    margin-bottom: 300px;
+  }
+
+  .btn-border {
+    font-size: 20px;
+    color: white;
+    border: 2px solid white;
+    border-radius: 6px;
+    background-color:rgba(255,255,255,.0);
+    padding: 8px 30px;
+  }
+  
+  .btn-border:hover {
+    background-color:rgba(255,255,255,0.2);
+    transition: 0.3s;
+  }
+}
+
+.navbar {
+  width: 100%;
+  .navbar-brand {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: white;
+  }
+  .navbar-brand:hover{
+    color: white;
+    opacity: 0.7;
+    transition: 0.2s;
+  }
+  .nav-item {
+    color: white;
+    display: inline-block;
+  }
+
+  .nav-link {
+    display: inline-block;
+  }
+
+  .nav-link:hover{
+    opacity: 0.7;
+    transition: 0.2s;
+  }
+
+  .navbar-toggler{
+    border-color: #ffffff;
+  }
+  
+  .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+}
+
+.top-description {
+  background-color: black;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  h1 {
+    color: $main-color;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  p {
+    color: white;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    padding-bottom: 15px;
+    padding-top: 15px;
+  }
+  .end-description{
+    padding-top: 20px;
+    font-size: 1.3em;
+  }
+}
+
+@media screen and (max-width: 1024px){
+
+}
+
+@media screen and (max-width: 680px){
+    .top-description {
+    p {
+      font-size: 12px;
+      width: 90%;
+    }
+  }
+}
