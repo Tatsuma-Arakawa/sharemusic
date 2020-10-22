@@ -13,6 +13,12 @@
 
   <body>
     <%= render 'layouts/header' %>
+    <% if flash[:notice] %>
+      <div class="alert alert-primary" role="alert"><strong><%= notice %></strong></div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger" role="alert"><strong><%= alert %></strong></div>
+    <% end %>
     <%= yield %>
     <%= render 'layouts/footer' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
