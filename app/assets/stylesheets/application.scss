@@ -1,9 +1,15 @@
 @import "bootstrap";
 
 $main-color: #CC66FF;
-
 html {
   background-color: black;
+}
+.background-color {
+  background-color: black;
+}
+
+.font-color {
+  color: white;
 }
 /*homepage*/
 .jumbotron { 
@@ -101,15 +107,95 @@ footer {
   margin: auto;
 }
 
-@media screen and (max-width: 1024px){
+.footer-color {
+  background-color: black;
+}
 
+/*form*/
+.form-email {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.form-password {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.field-area {
+  width: 30%;
+}
+
+.btn-remember {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.actions {
+  text-align: center;
+  margin-bottom: 50px;
+  .submit-btn {
+    width: 30%;
+    color: white;
+    background-color: gray;
+    border-radius: 3px;
+  }
+}
+
+.form-heading {
+  text-align: center;
+  padding-top: 50px;
+}
+
+/*shared-links*/
+.shared-links{
+  margin-left: 34%;
+  padding-bottom: 100px;
+}
+
+/*alert*/
+.alert {
+  margin: 0;
+}
+
+@media screen and (max-width: 1024px){
+  .field-area {
+    width: 40%;
+  }
+
+  .shared-links{
+    margin-left: 30%;
+  }
+
+  .actions {
+  .submit-btn {
+    width: 40%;
+    }
+  }
 }
 
 @media screen and (max-width: 680px){
-    .top-description {
+  .top-description {
     p {
       font-size: 12px;
       width: 90%;
     }
+  }
+
+  .field-area {
+    width: 60%;
+  }
+
+  .shared-links{
+    margin-left: 20%;
+  }
+
+  .actions {
+  .submit-btn {
+    width: 60%;
+  }
   }
 }
