@@ -105,6 +105,7 @@ html {
 footer {
   width: 90%;
   margin: auto;
+  padding-bottom: 50px;
 }
 
 .footer-color {
@@ -156,9 +157,14 @@ footer {
   padding-bottom: 100px;
 }
 
-/*alert*/
+/*error*/
 .alert {
   margin: 0;
+}
+
+.font-error {
+  margin-left: 30%;
+  color: $main-color;
 }
 
 @media screen and (max-width: 1024px){
@@ -174,6 +180,11 @@ footer {
   .submit-btn {
     width: 40%;
     }
+  }
+
+  .font-error {
+    margin-left: 20%;
+    color: $main-color;
   }
 }
 
@@ -195,7 +206,11 @@ footer {
 
   .actions {
   .submit-btn {
-    width: 60%;
+      width: 60%;
+    }
   }
+
+  .font-error {
+    margin-left: 10%;
   }
 }
