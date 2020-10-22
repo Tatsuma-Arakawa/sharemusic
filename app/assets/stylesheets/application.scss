@@ -74,6 +74,8 @@ $main-color: #CC66FF;
     color: $main-color;
     text-align: center;
     padding-bottom: 30px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: bold;
   }
   p {
     color: white;
@@ -82,10 +84,12 @@ $main-color: #CC66FF;
     margin: auto;
     padding-bottom: 15px;
     padding-top: 15px;
+    font-family: 'Noto Sans JP', sans-serif;
   }
   .end-description{
     padding-top: 20px;
     font-size: 1.3em;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
   }
 }
 
