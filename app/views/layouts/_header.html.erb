@@ -14,7 +14,7 @@
             <%= link_to 'New post', "#", class: "header-tag" %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Post list', "#", class: "header-tag" %>
+            <%= link_to 'Post list', pages_index_path, class: "header-tag" %>
           </li>
           <li class="nav-item">
             <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "header-tag" %>
@@ -27,7 +27,7 @@
             <%= link_to 'Sign in', new_user_registration_path, class: "header-tag" %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Post list', "#", class: "header-tag" %>
+            <%= link_to 'Post list', pages_index_path, class: "header-tag" %>
           </li>
         <% end %>
       </ul>
