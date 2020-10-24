@@ -7,7 +7,7 @@
 
     <div class="field form-username">
       <%= f.label :username %><br />
-      <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "field-area" %>
+      <%= f.text_field :username, class: "field-area" %>
     </div>
 
     <div class="field form-email">
@@ -26,6 +26,11 @@
     <div class="field form-password">
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "field-area" %>
+    </div>
+
+    <div class="field form-image">
+      <%= f.label :image %><br />
+      <%= f.file_field :image, class: "field-area" %>
     </div>
 
     <div class="actions">

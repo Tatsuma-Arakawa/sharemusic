@@ -4,8 +4,13 @@ $main-color: #CC66FF;
 html {
   background-color: black;
 }
+
 .background-color {
   background-color: black;
+}
+
+.main-color {
+  background-color: #CCCCCC;
 }
 
 .font-color {
@@ -131,6 +136,12 @@ footer {
   margin-bottom: 30px;
 }
 
+.form-image {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+}
+
 .field-area {
   width: 30%;
 }
@@ -173,6 +184,14 @@ footer {
 .font-error {
   margin-left: 30%;
   color: $main-color;
+}
+
+/*users/show*/
+.icon-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  object-fit: cover;
 }
 
 @media screen and (max-width: 1024px){
