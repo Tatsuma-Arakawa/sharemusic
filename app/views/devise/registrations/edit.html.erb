@@ -10,7 +10,12 @@
       <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "field-area" %>
     </div>
 
-    <div class="field form-username">
+    <div class="field form-introduce">
+      <%= f.label :introduce %><br />
+      <%= f.text_area :introduce, autofocus: true, class: "field-area" %>
+    </div>
+
+    <div class="field form-email">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "field-area" %>
     </div>
@@ -36,6 +41,11 @@
     <div class="field form-password">
       <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
       <%= f.password_field :current_password, autocomplete: "current-password", class: "field-area" %>
+    </div>
+
+    <div class="field form-image">
+      <%= f.label :image %><br />
+      <%= f.file_field :image, class: "field-area" %>
     </div>
 
     <div class="actions">

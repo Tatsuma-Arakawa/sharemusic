@@ -1,6 +1,22 @@
 <% provide(:title, @user.username) %>
 <div class="main-color">
-  <%= @user.username %>                                                      
-  <%= image_tag @user.image.url, class: "profile-image" %>
-  <%= link_to "Profile settings", edit_user_registration_path  %>
+  <div class="container">
+    <div class="user-profile">
+      <div class="show-username">
+        <h3><%= @user.username %></h3>
+      </div>
+      <div class="show-image">                                                     
+        <%= image_tag @user.image.url, class: "profile-image" %>
+      </div>
+      <h5>自己紹介</h5>
+      <div class="show-introduce">
+        <%= simple_format(@user.introduce) %>
+      </div>
+      <% if current_user == @user %>
+        <div class="show-profile-setting">
+          <%= link_to "Profile settings", edit_user_registration_path, class: "profile-setting"  %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
