@@ -170,6 +170,19 @@ footer {
   padding-bottom: 30px;
 }
 
+.delete-btn {
+  width: 200px;
+  margin: auto;
+}
+
+.back-btn {
+  margin-left: 35%;
+}
+
+.registrations-edit {
+  padding-bottom: 100px;
+}
+
 /*shared-links*/
 .shared-links{
   margin-left: 34%;
@@ -187,7 +200,7 @@ footer {
 }
 
 /*users/show*/
-.icon-image {
+.profile-image {
   width: 100px;
   height: 100px;
   border-radius: 100px;
@@ -212,6 +225,10 @@ footer {
   .font-error {
     margin-left: 20%;
     color: $main-color;
+  }
+
+  .back-btn {
+    margin-left: 30%;
   }
 }
 
@@ -239,5 +256,9 @@ footer {
 
   .font-error {
     margin-left: 10%;
+  }
+
+  .back-btn {
+    margin-left: 20%;
   }
 }

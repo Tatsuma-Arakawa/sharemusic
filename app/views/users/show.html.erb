@@ -1,5 +1,6 @@
 <% provide(:title, @user.username) %>
 <div class="main-color">
   <%= @user.username %>                                                      
-  <%= image_tag @user.image.url, class: "icon-image" %>
+  <%= image_tag @user.image.url, class: "profile-image" %>
+  <%= link_to "Profile settings", edit_user_registration_path  %>
 </div>
