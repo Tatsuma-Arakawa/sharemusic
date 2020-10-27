@@ -9,6 +9,13 @@ class ApplicationController < ActionController::Base
   def after_update_path_for(resource)
     user_path(id: current_user.id)
   end
+
+  def check_guest
+    email = resource&.email || params[:user][:email].downcase
+    if email == 'guest@example.com'
+      redirect_to root_path, alert: 'Guest users cannot be edited or deleted.'
+    end
+  end
   
   private
     def sign_in_required
