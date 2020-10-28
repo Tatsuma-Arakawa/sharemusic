@@ -8,20 +8,20 @@
       <ul class="navbar-nav">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to 'My page', current_user, class: "header-tag" %>
+            <%= link_to 'マイページ', current_user, class: "header-tag" %>
           </li>
           <li class="nav-item">
-            <%= link_to 'New post', "#", class: "header-tag" %>
+            <%= link_to '新規投稿', "#", class: "header-tag" %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "header-tag" %>
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "header-tag" %>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to 'Login', new_user_session_path, class: "header-tag" %>
+            <%= link_to 'ログイン', new_user_session_path, class: "header-tag" %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Sign in', new_user_registration_path, class: "header-tag" %>
+            <%= link_to '新規登録', new_user_registration_path, class: "header-tag" %>
           </li>
         <% end %>
       </ul>

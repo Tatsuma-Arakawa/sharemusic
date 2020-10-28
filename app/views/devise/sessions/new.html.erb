@@ -1,15 +1,15 @@
 <% provide(:title, "log in") %>
 <div class="background-color">
-  <h2 class="font-color form-heading">Log in</h2>
+  <h2 class="font-color form-heading">ログイン</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field form-email">
-      <%= f.label :email %><br />
+      <%= f.label "メールアドレス(必須)" %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "field-area" %>
     </div>
 
     <div class="field form-password">
-      <%= f.label :password %><br />
+      <%= f.label "パスワード(必須)" %><br />
       <%= f.password_field :password, autocomplete: "current-password", class: "field-area" %>
     </div>
 
@@ -21,7 +21,7 @@
     <% end %>
 
     <div class="actions">
-      <%= f.submit "Log in", class: "submit-btn" %>
+      <%= f.submit "ログイン", class: "submit-btn" %>
     </div>
   <% end %>
 

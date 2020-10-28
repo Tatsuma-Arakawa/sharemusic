@@ -1,40 +1,40 @@
 <% provide(:title, "sign up") %>
 <div class="background-color">
-  <h2 class="font-color form-heading">Sign up</h2>
+  <h2 class="font-color form-heading">新規登録</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field form-username">
-      <%= f.label :username %><br />
+      <%= f.label "ユーザーネーム(必須)" %><br />
       <%= f.text_field :username, class: "field-area" %>
     </div>
 
     <div class="field form-email">
-      <%= f.label :email %><br />
+      <%= f.label "メールアドレス(必須)" %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "field-area" %>
     </div>
 
     <div class="field form-password">
-      <%= f.label :password %>
+      <%= f.label "パスワード(必須)" %>
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <em>(<%= @minimum_password_length %>文字以上)</em>
       <% end %><br />
       <%= f.password_field :password, autocomplete: "new-password", class: "field-area" %>
     </div>
 
     <div class="field form-password">
-      <%= f.label :password_confirmation %><br />
+      <%= f.label "確認用パスワード(必須)" %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "field-area" %>
     </div>
 
     <div class="field form-image">
-      <%= f.label :image %><br />
+      <%= f.label "プロフィール画像" %><br />
       <%= f.file_field :image, class: "field-area" %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign up", class: "submit-btn" %>
+      <%= f.submit "新規登録", class: "submit-btn" %>
     </div>
   <% end %>
 
