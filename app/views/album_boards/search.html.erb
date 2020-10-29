@@ -1,0 +1,35 @@
+<section class="text-center py-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-9 col-lg-7 col-xl-5">
+      <h6 class="text-muted pt-5">アルバム検索</h6>
+      <h2 class="font-weight-bold pb-4">アルバム検索</h2>
+
+      <%= form_with url: search_album_boards_path, method: :get, local: true do |f| %>
+      <div class="form-group">
+        <%= f.text_field :search, class:"form-control my-4" %>
+        <%= f.submit 'アルバム名検索', name: nil,class:"btn blue-gradient z-depth-1a submit-btn" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <% if @searchalbums.present? %>
+  <h2 class="font-weight-bold my-4">検索結果</h2>
+  <div class="row row-cols-1 row-cols-md-4">
+    <% @searchalbums.each_with_index do |searchalbum, index| %>
+    <div class="col-lg-3 mb-4 d-flex justify-content-center">
+      <div class="card card-cascade m-1">
+        <div class="view view-cascade overlay">
+          <% if searchalbum.images.any?%>
+            <%image = searchalbum.images[1]%>
+            <%= image_tag image["url"],:size =>'242x242' %>
+          <%else%>
+            <%= image_tag "default.jpg",:size =>'242x242' %>
+          <%end%>
+        </div>
+      </div>
+    </div>
+    <%end%>
+  </div>
+  <%end%>
+</section>
