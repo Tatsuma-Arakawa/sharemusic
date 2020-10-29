@@ -21,11 +21,30 @@
       <div class="card card-cascade m-1">
         <div class="view view-cascade overlay">
           <% if searchalbum.images.any?%>
-            <%image = searchalbum.images[1]%>
-            <%= image_tag image["url"],:size =>'242x242' %>
-          <%else%>
+            <div class = album-image>
+              <%image = searchalbum.images[1]%>
+              <%= image_tag image["url"],:size =>'242x242' %>
+            </div>
+            <%= searchalbum.name %>
+          <% else %>
             <%= image_tag "default.jpg",:size =>'242x242' %>
-          <%end%>
+          <% end %>
+        </div>
+
+        <div>
+          <% if @albumboards.pluck("albums").include?(searchalbum.name) %>
+            <%= link_to album_board_path(searchalbum.name) do %>
+              <button type="button"> レビューを書き込む</button>
+            <% end %>
+          <% elsif searchalbum.images.present? %>
+            <%= link_to new_album_board_path(albums: searchalbum.name, icon: image["url"]) do %>
+              <button type="button">レビューを作成する　</button>
+            <% end %>
+          <% else %>
+            <%= link_to  new_album_board_path(albums: searchalbum.name) do%>
+              <button type="button">レビューを作成する　</button>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>

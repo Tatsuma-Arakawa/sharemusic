@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     sessions: 'users/sessions'
   }
-  resources :album_boards do
+  resources :album_boards, only: [:show, :new] do
     collection {get "search"}
   end
 

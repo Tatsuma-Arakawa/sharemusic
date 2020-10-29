@@ -1,0 +1,2 @@
+class BoardReview < ApplicationRecord
+end

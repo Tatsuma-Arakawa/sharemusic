@@ -1,0 +1,2 @@
+class BoardReviewsController < ApplicationController
+end

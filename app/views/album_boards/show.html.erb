@@ -1,0 +1,7 @@
+<div>
+  <% if @albumboard.icon? %>
+    <%= image_tag "#{@albumboard.icon}" %>
+  <% else %>
+    <%= image_tag "default.jpg" %>
+  <% end %>
+</div>

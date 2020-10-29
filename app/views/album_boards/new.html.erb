@@ -1,0 +1,7 @@
+<h6>レビューを作成する</h6>
+<div>
+  <%= form_with(model: @albumboard, local: true) do |f| %>
+    <%= f.label :albums %>
+    <%= f.text_field :albums, readonly: true %>
+  <% end %>
+</div>
