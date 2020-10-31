@@ -1,7 +1,13 @@
-<h6>レビューを作成する</h6>
-<div>
+<div class="row d-flex justify-content-center">
   <%= form_with(model: @albumboard, local: true) do |f| %>
-    <%= f.label :albums %>
-    <%= f.text_field :albums, readonly: true %>
+    <%= f.label :アルバム名 %>
+    <%= f.text_field :albums, class:"form-control" %>
+    <p>アルバム名は正しいですか？</p>
+  </div>
+  <div class="text-center my-4">
+    <%= f.submit class:"btn blue-gradient btn-block z-depth-1a submit-btn" %>
+  </div>
+
+  <%= hidden_field_tag :album_icon, @album_icon %>
   <% end %>
 </div>

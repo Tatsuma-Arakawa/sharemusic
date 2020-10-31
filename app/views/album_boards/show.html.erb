@@ -1,7 +1,8 @@
 <div>
-  <% if @albumboard.icon? %>
-    <%= image_tag "#{@albumboard.icon}" %>
-  <% else %>
-    <%= image_tag "default.jpg" %>
-  <% end %>
-</div>
+  <div>
+    <%= @albumboard.albums %>
+  </div>
+  <div>
+    <%= image_tag "#{@albumboard.icon}",:size =>'500x500' %>
+  </div>
+<div>

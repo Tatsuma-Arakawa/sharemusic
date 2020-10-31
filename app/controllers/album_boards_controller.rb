@@ -1,7 +1,13 @@
 class AlbumBoardsController < ApplicationController
+  before_action :authenticate_user!
+
   require 'rspotify'
   RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_SECRET_ID'])
-  
+
+  def index
+    @albumboards = AlbumBoard.all
+  end
+
   def search
     @albumboards = AlbumBoard.all
     if params[:search].present?
@@ -10,11 +16,12 @@ class AlbumBoardsController < ApplicationController
   end
 
   def new
-    @albumboard = AlbumBoard.new(albums: params[:artists])
+    @albumboard = AlbumBoard.new(albums: params[:albums])
     @album_icon = params[:icon]
   end
 
   def show
+    @albumboard = AlbumBoard.find(params[:id])
   end
 
   def edit
@@ -23,7 +30,8 @@ class AlbumBoardsController < ApplicationController
   def create
     @albumboard = AlbumBoard.new(albumboard_params)
     @albumboard.remote_icon_url = params[:album_icon]
-    if redirect_to @albumboard, notice: 'レビューを作成しました。'
+    if @albumboard.save
+      redirect_to @albumboard, notice: "レビューページを新規作成しました"
     else
       render :new
     end
@@ -31,7 +39,7 @@ class AlbumBoardsController < ApplicationController
 
   private
 
-  def albumboard_params
-    params.require(:album_board).permit(:albums, :icon)
-  end
+    def albumboard_params
+      params.require(:album_board).permit(:albums, :icon)
+    end
 end

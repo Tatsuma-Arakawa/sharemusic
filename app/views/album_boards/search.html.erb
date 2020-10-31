@@ -38,11 +38,11 @@
             <% end %>
           <% elsif searchalbum.images.present? %>
             <%= link_to new_album_board_path(albums: searchalbum.name, icon: image["url"]) do %>
-              <button type="button">レビューを作成する　</button>
+              <button type="button">レビューを作成する</button>
             <% end %>
           <% else %>
             <%= link_to  new_album_board_path(albums: searchalbum.name) do%>
-              <button type="button">レビューを作成する　</button>
+              <button type="button">レビューを作成する</button>
             <% end %>
           <% end %>
         </div>

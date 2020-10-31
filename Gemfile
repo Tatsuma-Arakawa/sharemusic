@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'carrierwave'
+gem 'mini_magick'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'rspotify'
@@ -34,6 +35,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do
