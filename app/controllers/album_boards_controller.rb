@@ -22,6 +22,8 @@ class AlbumBoardsController < ApplicationController
 
   def show
     @albumboard = AlbumBoard.find(params[:id])
+    @boardreview = BoardReview.new
+    @boardreviews = @albumboard.board_reviews.includes([:user]).order(id: :desc)
   end
 
   def edit

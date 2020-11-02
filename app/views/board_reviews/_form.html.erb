@@ -1,0 +1,10 @@
+<div>
+  <%= form_with(model: [@albumboard, @boardreview], local: true) do |f| %>
+    <div>
+      <%= f.text_area :content %>
+    </div>
+    <div>
+      <%= f.submit "投稿する" %>
+    </div>
+  <% end %>
+</div>

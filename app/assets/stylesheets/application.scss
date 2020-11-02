@@ -11,6 +11,14 @@ html {
   background-color: black;
 }
 
+.background-maincolor {
+  background-color: $main-color;
+}
+
+.font-subcolor {
+  color: $sub-color;
+}
+
 .main-color {
   background-color: $main-color;
 }

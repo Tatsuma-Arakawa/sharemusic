@@ -1,4 +1,15 @@
-<% @albumboards.each do |albumboard| %>
-  <%= image_tag "#{albumboard.icon}" %>
-  <%= albumboard.albums %>
-<% end %>
+<div class="background-maincolor">
+  <div class="container">
+    <h2>レビューページ一覧</h2>
+    <div class="row row-cols-1 row-cols-md-4">
+      <% @albumboards.each do |albumboard| %>
+        <div class="col-lg-3 mb-4 d-flex justify-content-center">
+          <div>
+            <p><%= albumboard.albums %></p>
+            <%= image_tag "#{albumboard.icon}",:size =>'242x242' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
