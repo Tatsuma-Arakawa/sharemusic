@@ -7,8 +7,10 @@
         <% @albumboards.each do |albumboard| %>
           <div class="col-lg-3 mb-4 d-flex justify-content-center">
             <div>
-              <p><%= albumboard.albums %></p>
-              <%= image_tag "#{albumboard.icon}",:size =>'242x242' %>
+              <%= link_to album_board_path(albumboard.id) do %>
+                <p><%= albumboard.albums %></p>
+                <%= image_tag "#{albumboard.icon}",:size =>'242x242' %>
+              <% end %>
             </div>
           </div>
         <% end %>

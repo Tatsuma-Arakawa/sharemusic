@@ -14,10 +14,7 @@
             <%= link_to 'ユーザー一覧', users_path, class: "header-tag" %>
           </li>
           <li class="nav-item">
-            <%= link_to 'フォロー投稿一覧', "#", class: "header-tag" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to '新規投稿', "#", class: "header-tag" %>
+            <%= link_to 'アルバムを探す', search_album_boards_path, class: "header-tag" %>
           </li>
           <li class="nav-item">
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "header-tag" %>
