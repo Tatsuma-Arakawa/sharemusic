@@ -6,13 +6,13 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  resources :album_boards,  except: [:index, :new]
-  resources :relationships,   only: [:create, :destroy]
-
   resources :album_boards, only: [:index, :new] do
     resources :board_reviews, except: [:show]
     collection {get "search"}
   end
+
+  resources :album_boards,  except: [:index, :new]
+  resources :relationships,   only: [:create, :destroy]
 
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
