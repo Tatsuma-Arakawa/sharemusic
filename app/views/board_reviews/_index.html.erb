@@ -1,3 +1,10 @@
+<div class="average-score-display ml-3 pt-2">
+  平均<%= @albumboard.avg_score %>点（<%= @albumboard.board_reviews.count %>件のレビュー）
+</div>
+<div class="star-rating mb-2">
+  <div class="star-rating-front" style="width: <%= @albumboard.board_review_score_percentage %>%">★★★★★</div>
+  <div class="star-rating-back">★★★★★</div>
+</div>
 <% @boardreviews.each do |boardreview| %>
   <%= link_to user_path(boardreview.user.id) do %>
     <div>
@@ -5,7 +12,12 @@
       <%= image_tag "#{boardreview.user.image}", :size =>'30x30' %>
     </div>
   <% end %>
+  <p>評価: <%= boardreview.score %>/5</p>
   <div>
     <p><%= boardreview.content %></p>
   </div>
+  <% if current_user? boardreview.user %>
+    <%= link_to "レビューを削除", album_board_board_review_path(boardreview.album_board.albums, boardreview.id), method: :delete,
+    data: { confirm: "本当に削除しますか？" } %>
+  <% end %>
 <% end %> 

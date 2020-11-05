@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   }
 
   resources :album_boards, only: [:index, :new] do
-    resources :board_reviews, except: [:show]
+    resources :board_reviews, only: [:create, :destroy]
     collection {get "search"}
   end
 

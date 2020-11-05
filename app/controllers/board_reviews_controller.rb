@@ -1,4 +1,5 @@
 class BoardReviewsController < ApplicationController
+  before_action :authenticate_user!
 
   def create
     @albumboard = AlbumBoard.find(params[:album_board_id])
@@ -13,9 +14,17 @@ class BoardReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @boardreview = current_user.board_reviews.find(params[:id])
+    if @boardreview.destroy
+      flash[:notice] = "レビューを削除しました"
+      redirect_to request.referer
+    end
+  end
+
   private
   
     def boardreview_params
-      params.require(:board_review).permit(:content, :user_id, :album_board_id)
+      params.require(:board_review).permit(:content, :score, :user_id, :album_board_id)
     end
 end
