@@ -8,11 +8,7 @@ html {
 }
 
 .background-color {
-  background-image: linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%);
-}
-
-.background-maincolor {
-  background-color: $main-color;
+  background-color: $sub-color;
 }
 
 .font-subcolor {
@@ -30,6 +26,8 @@ html {
 ul {
   list-style: none;
 }
+
+
 
 /*homepage*/
 .jumbotron { 
@@ -138,6 +136,7 @@ footer {
 }
 
 
+
 /*form*/
 .form-username {
   text-align: center;
@@ -211,11 +210,13 @@ footer {
 }
 
 
+
 /*shared-links*/
 .shared-links{
   margin-left: 34%;
   padding-bottom: 100px;
 }
+
 
 
 /*error*/
@@ -227,6 +228,7 @@ footer {
   margin-left: 30%;
   color: $main-color;
 }
+
 
 
 /*users/show*/
@@ -271,6 +273,7 @@ footer {
 }
 
 
+
 /*board_reviews/_form*/
 .rating-box .ratings .fa{
   font-size: 30px;
@@ -285,6 +288,7 @@ footer {
 .rating-value-display {
   font-size: 20px;
 }
+
 
 
 /*board_reviews/_index*/
@@ -311,6 +315,52 @@ footer {
 .average-score-display {
   font-size: 16px;
 }
+
+
+
+/*pages/_index*/
+.album-index-heading {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.index {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  .index-albumboard {
+    padding: 10px;
+    background-color: $main-color;
+    border-radius: 10px;
+    .index-link {
+      text-decoration: none;
+    }
+  }
+}
+
+.index-album-image {
+  text-align: center;
+}
+
+.index-album-information {
+  text-align: center;
+}
+
+.index-album-title {
+  color: black;
+  padding-top: 10px;
+}
+
+.index-avg{
+  color: black;
+  padding-top: 30px;
+  font-weight: bold;
+}
+
+.index-star {
+  text-align: center;
+  display: inline-flex;
+}
+
 
 
 @media screen and (max-width: 992px){
@@ -344,6 +394,8 @@ footer {
     margin-left: 30%;
   }
 }
+
+
 
 @media screen and (max-width: 768px){
   .top-description {

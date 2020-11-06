@@ -4,10 +4,6 @@ class AlbumBoardsController < ApplicationController
   require 'rspotify'
   RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_SECRET_ID'])
 
-  def index
-    @albumboards = AlbumBoard.all
-  end
-
   def search
     @albumboards = AlbumBoard.all
     if params[:search].present?

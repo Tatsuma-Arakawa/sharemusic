@@ -1,7 +1,6 @@
-<section class="text-center py-5">
-  <div class="row d-flex justify-content-center">
+<section class="text-center py-5 main-color">
+  <div class="row d-flex justify-content-center ">
     <div class="col-md-9 col-lg-7 col-xl-5">
-      <h6 class="text-muted pt-5">アルバム検索</h6>
       <h2 class="font-weight-bold pb-4">アルバム検索</h2>
 
       <%= form_with url: search_album_boards_path, method: :get, local: true do |f| %>
@@ -18,10 +17,10 @@
   <div class="row row-cols-1 row-cols-md-4">
     <% @searchalbums.each_with_index do |searchalbum, index| %>
     <div class="col-lg-3 mb-4 d-flex justify-content-center">
-      <div class="card card-cascade m-1">
+      <div class="card-cascade m-1">
         <div class="view view-cascade overlay">
           <% if searchalbum.images.any?%>
-            <div class = album-image>
+            <div class = "album-image background-maincolor">
               <%image = searchalbum.images[1]%>
               <%= image_tag image["url"],:size =>'242x242' %>
             </div>
@@ -33,16 +32,14 @@
 
         <div>
           <% if @albumboards.pluck("albums").include?(searchalbum.name) %>
-            <%= link_to album_board_path(searchalbum.name) do %>
-              <button type="button"> レビューを書き込む</button>
-            <% end %>
+            <p>既にレビューページが存在します</p>
           <% elsif searchalbum.images.present? %>
             <%= link_to new_album_board_path(albums: searchalbum.name, icon: image["url"]) do %>
-              <button type="button">レビューを作成する</button>
+              <button type="button" class="btn btn-outline-primary font-weight-bold">レビューページを作成する</button>
             <% end %>
           <% else %>
             <%= link_to  new_album_board_path(albums: searchalbum.name) do%>
-              <button type="button">レビューを作成する</button>
+              <button type="button">レビューページを作成する</button>
             <% end %>
           <% end %>
         </div>

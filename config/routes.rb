@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  resources :album_boards, only: [:index, :new] do
+  resources :album_boards, only: [:new] do
     resources :board_reviews, only: [:create, :destroy]
     collection {get "search"}
   end
