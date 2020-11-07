@@ -363,6 +363,89 @@ footer {
 
 
 
+/*album_board/show*/
+.show-album-information {
+  padding-top: 30px;
+  .show-album-image {
+    text-align: center;
+  }
+  .reviews-form {
+    text-align: center;
+    padding-top: 60px;
+  }
+}
+
+.show-album-name {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.modal-review {
+  max-width: 800px;
+}
+
+.text-field-review {
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+.text-area-review {
+  width: 90%;
+  height: 300px;
+}
+
+.album-rating {
+  text-align: center;
+  display: inline-flex;
+}
+
+.show-avg {
+  margin-top: 30px;
+}
+
+.show-star {
+  margin: 0 auto;
+}
+
+.reviews-index-heading {
+  margin-top: 50px;
+  font-weight: bold;
+}
+
+.review {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
+.review-title {
+  p {
+    margin-bottom: 5px;
+  }
+}
+
+.review-content {
+  padding: 10px;
+}
+
+.review-top {
+  border-bottom: #CCCCCC solid 1px;
+}
+
+.review-user {
+  p {
+    display: inline-block;
+    margin-left: 10px;
+    color: 	#222222;
+  }
+}
+
+.review-user-image {
+  border-radius: 50px;
+}
+
+
+
 @media screen and (max-width: 992px){
   .nav-item {
     padding-top: 5px;
@@ -394,8 +477,6 @@ footer {
     margin-left: 30%;
   }
 }
-
-
 
 @media screen and (max-width: 768px){
   .top-description {
