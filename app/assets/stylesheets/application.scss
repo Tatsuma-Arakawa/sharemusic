@@ -231,6 +231,17 @@ footer {
 
 
 
+/*album_board/search*/
+.search-page {
+  padding-top: 0;
+}
+
+.album-search-form {
+  padding-top: 50px;
+}
+
+
+
 /*users/show*/
 .profile-image {
   width: 100px;
@@ -248,10 +259,6 @@ footer {
 
 .show-username {
   padding-top: 30px;
-}
-
-.show-image {
-
 }
 
 .show-introduce {
@@ -298,6 +305,7 @@ footer {
   height: 1em;
   font-size: 25px;
 }
+
 .star-rating-front {
   position: absolute;
   top: 0;
@@ -305,6 +313,7 @@ footer {
   overflow: hidden;
   color: #ffcc33;
 }
+
 .star-rating-back {
   color: #ccc;
 }
@@ -312,6 +321,7 @@ footer {
 .average-score {
   display: flex;
 }
+
 .average-score-display {
   font-size: 16px;
 }
@@ -488,6 +498,25 @@ footer {
 .users-index-username {
   color: black;
   margin-left: 10px;
+}
+
+
+
+/*users/show_follow*/
+.follow-user-image {
+  border-radius: 50px;
+}
+
+.user_info {
+  margin-top: 40px;
+  h2 {
+    display: inline-block;
+    margin: auto;
+  }
+}
+
+.follow-users {
+  padding-bottom: 50px;
 }
 
 
