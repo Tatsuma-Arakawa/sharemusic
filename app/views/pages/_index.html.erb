@@ -1,6 +1,6 @@
-<div class="background-color">
+<div class="background-color pages-index">
   <div class="container">
-    <h2 class = "font-color album-index-heading">レビューページ一覧</h2>
+    <h2 class = "album-index-heading">レビューページ一覧</h2>
     <div>
       <% albumboards.each do |albumboard| %>
         <div class = "index">
@@ -26,5 +26,6 @@
         </div>
       <% end %>
     </div>
+    <%= will_paginate @albumboards, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
   </div>
 </div>

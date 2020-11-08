@@ -1,7 +1,7 @@
 @import "bootstrap";
 
 $main-color: #EEEEEE;
-$sub-color: #888888;
+$sub-color: #AAAAAA;
 
 html {
   background-color: black;
@@ -19,14 +19,14 @@ html {
   background-color: $main-color;
 }
 
-.font-color {
-  color: white;
-}
-
 ul {
   list-style: none;
+  margin: 0;
 }
 
+.pagination {
+  margin: 0;
+}
 
 
 /*homepage*/
@@ -268,7 +268,7 @@ footer {
 .show-profile-setting {
   padding: 10px 0 30px 0;
   .profile-setting{
-    color: $sub-color;
+    color: #777777;
   }
 }
 
@@ -319,6 +319,10 @@ footer {
 
 
 /*pages/_index*/
+.pages-index {
+  padding-bottom: 30px;
+}
+
 .album-index-heading {
   padding-top: 20px;
   text-align: center;
@@ -437,11 +441,53 @@ footer {
     display: inline-block;
     margin-left: 10px;
     color: 	#222222;
+    &:hover {
+      color: #777777;
+      transition: 0.1s;
+    }
+  }
+  .review-user-image {
+    border-radius: 50px;
   }
 }
 
-.review-user-image {
+
+
+/*users/index*/
+.user-index-heading {
+  padding-top: 20px;
+  padding-bottom:20px ;
+}
+
+.user-index-search-form {
+  text-align: center;
+}
+
+.user-index-field {
+  width: 50%;
+}
+
+.users-profile {
+  padding: 20px;
+}
+
+.user-index-profile {
+  background-color: $main-color;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.user-index-profile-content {
+  padding: 10px;
+}
+
+.users-index-user-image {
   border-radius: 50px;
+}
+
+.users-index-username {
+  color: black;
+  margin-left: 10px;
 }
 
 
