@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :board_reviews, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_reviews, through: :likes, source: :board_review
   has_many :album_boards
   has_many :active_relationships,  class_name: "Relationship",
                                    foreign_key: "follower_id",

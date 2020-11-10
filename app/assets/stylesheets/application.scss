@@ -2,6 +2,11 @@
 
 $main-color: #EEEEEE;
 $sub-color: #AAAAAA;
+$hover-color:  #777777;
+
+a:hover {
+  text-decoration: none;
+}
 
 html {
   background-color: black;
@@ -26,6 +31,13 @@ ul {
 
 .pagination {
   margin: 0;
+}
+
+.btn-hover {
+  &:hover {
+    color: $hover-color;
+    transition: 0.1s;
+  }
 }
 
 
@@ -76,6 +88,10 @@ ul {
   .header-tag {
     color: white;
     padding-left: 20px;
+    &:hover {
+      opacity: 0.7;
+      transition: 0.2s;
+    }
   }
 
   .nav-link {
@@ -294,6 +310,17 @@ footer {
   border-bottom:  #CCCCCC solid 1px;
 }
 
+.user-review-albums {
+  color: black;
+  &:hover {
+    color: $hover-color;
+    transition: 0.1s;
+  }
+}
+
+.user-show-follow-form {
+  margin-top: 10px;
+}
 
 
 /*board_reviews/_form*/
@@ -467,7 +494,7 @@ footer {
     margin-left: 10px;
     color: 	#222222;
     &:hover {
-      color: #777777;
+      color: $hover-color;
       transition: 0.1s;
     }
   }
@@ -513,6 +540,13 @@ footer {
 .users-index-username {
   color: black;
   margin-left: 10px;
+}
+
+
+
+/*stats*/
+.stats {
+  margin-top: 10px;
 }
 
 

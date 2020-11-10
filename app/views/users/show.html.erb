@@ -14,7 +14,9 @@
           <%= simple_format(@user.introduce) %>
         </div>
       <% end %>
-      <%= render 'follow_form' if user_signed_in? %>
+      <div class="user-show-follow-form">
+        <%= render 'follow_form' if user_signed_in? %>
+      </div>
       <section class="stats">
         <%= render 'shared/stats' %>
       </section>
@@ -23,32 +25,7 @@
           <%= link_to "Profile settings", edit_user_registration_path, class: "profile-setting"  %>
         </div>
       <% end %>
-      <% if @user.board_reviews.present? %>
-        <h4 class="text-center"><%= @user.username %>のレビュー一覧</h4>
-        <% @review_albums.each do |review_album| %>
-          <div class="main-color user-reviews">
-            <div class="row">
-              <div class="col-lg-4 text-center">
-                <%= link_to album_board_path(review_album.album_board.id) do %>
-                  <div>
-                    <%= review_album.album_board.albums %>
-                  </div>
-                  <%= image_tag "#{review_album.album_board.icon}",:size =>'200x200' %>
-                <% end %>
-              </div>
-              <div class="col-lg-8"> 
-                <div class="user-review-heading">
-                  <h6 class="font-weight-bold text-center">
-                    <%= review_album.title %>
-                    <small>評価: <%= review_album.score %>/5</small>
-                  </h6>
-                </div>
-                <p><%= simple_format(review_album.content) %></p>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
+      <%= render "review_index" %>
       <div class="user-paginate">
         <%= will_paginate @review_albums, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
       </div>
