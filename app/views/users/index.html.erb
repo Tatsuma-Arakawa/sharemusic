@@ -7,12 +7,13 @@
         <div class="user-index-search-form">
           <%= f.label :username, "ユーザー検索" %>
           <%= f.search_field :username_cont, class: "user-index-field" %>
-          <%= f.submit "検索" %>
+          <%= f.submit "検索", class: "btn-search btn-primary" %>
         </div>
       <% end %>
     </div>
     <ul class="users-profile">
       <%= render @users %>
     </ul>
+    <%= will_paginate @users, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
   </div>
 </div>

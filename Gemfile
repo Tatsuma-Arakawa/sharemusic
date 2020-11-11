@@ -21,7 +21,6 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'rspotify'
 gem 'dotenv-rails'
-gem 'ransack'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap4'
 
@@ -30,6 +29,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop-airbnb'
   gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do

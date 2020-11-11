@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :album_board do
-    albums { "MyString" }
-    icon { "MyText" }
+    albums { "testalbum" }
+    icon { "testicon" }
   end
 end

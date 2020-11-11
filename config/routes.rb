@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   }
 
   resources :album_boards, only: [:new] do
-    resources :board_reviews, only: [:create, :destroy]
+    resources :board_reviews, only: [:create, :destroy, :edit]
     collection {get "search"}
   end
 
@@ -18,7 +18,8 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
   
-  resources  :users, :only => [:show, :index] do
+  resources  :users, :only => [:show] do
+    get :search, on: :collection
     member do
       get :following, :followers
     end

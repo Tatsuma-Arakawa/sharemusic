@@ -26,6 +26,8 @@
         </div>
       <% end %>
     </div>
-    <%= will_paginate @albumboards, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+    <div class="all-paginate">
+      <%= will_paginate @albumboards, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+    </div>
   </div>
 </div>

@@ -3,6 +3,7 @@
 $main-color: #EEEEEE;
 $sub-color: #AAAAAA;
 $hover-color:  #777777;
+$btn-color: #555555;
 
 a:hover {
   text-decoration: none;
@@ -27,16 +28,27 @@ html {
 ul {
   list-style: none;
   margin: 0;
+  padding: 0;
 }
 
 .pagination {
-  margin: 0;
+  margin-top: 0;
 }
 
 .btn-hover {
   &:hover {
     color: $hover-color;
     transition: 0.1s;
+  }
+}
+
+.main-btn {
+  background-color: $btn-color;
+  color: white;
+  font-weight: bold;
+  &:hover {
+    background-color: $hover-color;
+    color: white;
   }
 }
 
@@ -301,7 +313,7 @@ footer {
   margin-top: 20px;
 }
 
-.user-paginate {
+.all-paginate {
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -415,6 +427,38 @@ footer {
 .index-star {
   text-align: center;
   display: inline-flex;
+}
+
+
+
+/*album_board/new*/
+
+.album-create-name {
+  text-align: center;
+  display: block;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.album-create-form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.album-create-btn {
+  margin-top: 30px;
+}
+
+.album-create-submit {
+  background-color: $btn-color;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 30px;
+  &:hover {
+    background-color: $hover-color;
+    color: white;
+  }
 }
 
 
@@ -546,7 +590,8 @@ footer {
 
 /*stats*/
 .stats {
-  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 
