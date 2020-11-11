@@ -4,6 +4,12 @@ class AlbumBoardsController < ApplicationController
   require 'rspotify'
   RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_SECRET_ID'])
 
+  def index
+    @q = AlbumBoard.ransack(params[:q])
+    @albumboards = @q.result(distinct: true)
+    @albumboards = @albumboards.paginate(page: params[:page], per_page: 10)
+  end
+
   def search
     @albumboards = AlbumBoard.all
     if params[:search].present?

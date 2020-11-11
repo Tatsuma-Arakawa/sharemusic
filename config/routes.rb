@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     collection {get "search"}
   end
 
-  resources :album_boards,  except: [:index, :new]
+  resources :album_boards,  except: [:new]
   resources :relationships,   only: [:create, :destroy]
 
   devise_scope :user do
