@@ -3,7 +3,7 @@
   <% @review_albums.each do |review_album| %>
     <div class="main-color user-reviews">
       <div class="row">
-        <div class="col-lg-4 text-center">
+        <div class="col-lg-4 text-center font-weight-bold">
           <%= link_to album_board_path(review_album.album_board.id) do %>
             <div>
               <p class="user-review-albums"><%= review_album.album_board.albums %></p>
@@ -23,4 +23,6 @@
       </div>
     </div>
   <% end %>
+  <div class="footer-space">
+  </div>
 <% end %>

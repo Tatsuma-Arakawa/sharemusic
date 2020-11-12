@@ -33,6 +33,11 @@
       <%= f.file_field :image, class: "field-area" %>
     </div>
 
+    <div class="field form-introduce">
+      <%= f.label "自己紹介" %><br />
+      <%= f.text_area :introduce, autofocus: true, class: "field-area" %>
+    </div>
+
     <div class="actions">
       <%= f.submit "新規登録", class: "submit-btn" %>
     </div>
