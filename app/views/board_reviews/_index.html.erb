@@ -17,6 +17,7 @@
       <div>
         <p><%= simple_format(boardreview.content) %></p>
       </div>
+      <%= render 'album_boards/favorite_btn', board_reivew: boardreview %>
       <% if current_user? boardreview.user %>
         <%= link_to "レビューを削除", album_board_board_review_path(boardreview.album_board.albums, boardreview.id), method: :delete,
         data: { confirm: "本当に削除しますか？" } %>

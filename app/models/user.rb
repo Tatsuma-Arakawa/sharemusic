@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :board_reviews, dependent: :destroy
-  has_many :likes, dependent: :destroy
-  has_many :liked_reviews, through: :likes, source: :board_review
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_boardreviews, through: :favorites, source: :board_review
   has_many :album_boards
   has_many :active_relationships,  class_name: "Relationship",
                                    foreign_key: "follower_id",
@@ -42,6 +42,10 @@ class User < ApplicationRecord
 
   def following?(other_user)
     self.following.include?(other_user)
+  end
+
+  def already_favorite?(favorite_boardreview)
+    favorites.exists?(board_review_id: favorite_boardreview.id)
   end
 
   def self.search(search)

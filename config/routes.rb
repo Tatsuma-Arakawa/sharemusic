@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'favorites/create'
-  get 'favorites/destroy'
   root 'pages#home'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -26,4 +24,6 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+
+  resources :favorites, only: [:create, :destroy]
 end
