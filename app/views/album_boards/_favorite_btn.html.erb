@@ -4,12 +4,11 @@
       <%= link_to favorite_path(id: board_reivew.id), method: :delete, remote: true do %>
       <i class="fas fa-heart red-text animated heartBeat"></i>
       <% end %>
-      <%= @boardreview.favorites.count %>
     <% else %>
       <%= link_to favorites_path(id: board_reivew.id), method: :post, remote: true do %>
       <i class="far fa-heart red-text animated flash"></i>
       <% end %>
-      <%= @boardreview.favorites.count %>
     <% end %>
   <% end %>
+  <small>いいね<%= board_reivew.favorites.count %>件</small>
 </div>

@@ -31,6 +31,10 @@ ul {
   padding: 0;
 }
 
+li {
+  list-style: none;
+}
+
 .pagination {
   margin-top: 0;
 }
@@ -600,6 +604,7 @@ footer {
 .users-index-username {
   color: black;
   margin-left: 10px;
+  margin-right: 30px;
 }
 
 
@@ -631,6 +636,11 @@ footer {
     text-align: center;
     padding-top: 50px;
   }
+}
+
+.user-introduce {
+  margin-top: 10px;
+  border-top: $sub-color solid 1px;
 }
 
 

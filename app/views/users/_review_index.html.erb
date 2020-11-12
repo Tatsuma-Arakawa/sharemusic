@@ -13,12 +13,13 @@
         </div>
         <div class="col-lg-8"> 
           <div class="user-review-heading">
-            <h6 class="font-weight-bold text-center">
+            <div class="font-weight-bold text-center">
               <%= review_album.title %>
               <small>評価: <%= review_album.score %>/5</small>
-            </h6>
+            </div>
           </div>
           <p><%= simple_format(review_album.content) %></p>
+          <%= render 'album_boards/favorite_btn', board_reivew: review_album %>
         </div>
       </div>
     </div>
