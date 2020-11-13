@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
 
   mount_uploader :image, ImageUploader
   
@@ -24,7 +24,7 @@ class User < ApplicationRecord
   def self.guest
     find_or_create_by(email: 'guest@example.com', username: 'guestuser') do |user|
       user.password = SecureRandom.urlsafe_base64
-      #user.confirmed at = Time.now
+      user.confirmed_at = Time.now
     end
   end
 
