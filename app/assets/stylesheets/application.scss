@@ -566,16 +566,16 @@ footer {
 
 
 /*users/index*/
-.user-index-heading {
+.users-index-heading {
   padding-top: 20px;
   padding-bottom:20px ;
 }
 
-.user-index-search-form {
+.index-search-form {
   text-align: center;
 }
 
-.user-index-field {
+.index-field {
   width: 50%;
   display: inline-block;
 }
@@ -584,13 +584,13 @@ footer {
   padding: 20px;
 }
 
-.user-index-profile {
+.users-index-profile {
   background-color: $main-color;
   margin-top: 20px;
   border-radius: 5px;
 }
 
-.user-index-profile-content {
+.users-index-profile-content {
   padding: 10px;
 }
 
@@ -604,7 +604,7 @@ footer {
   margin-right: 30px;
 }
 
-.btn-user-search {
+.btn-search {
   background-color: $btn-color;
   color: white;
 }
@@ -640,7 +640,7 @@ footer {
   }
 }
 
-.user-introduce {
+.users-introduce {
   margin-top: 10px;
   border-top: $sub-color solid 1px;
 }

@@ -1,12 +1,14 @@
 <div class="background-color pages-index">
   <div class="container">
-    <h2 class = "album-index-heading">レビューページ検索</h2>
+    <h2 class = "album-index-heading font-weight-bold">レビューページ検索</h2>
     <div>
-      <div class="album-index-search">
+      <div class="form-group">
         <%= search_form_for @q do |f| %>
-          <%= f.label :albums, "アルバム名" %>
-          <%= f.search_field :albums_cont, class: "album-index-field" %>
-          <%= f.submit "検索", class: "btn-search btn-primary" %>
+          <div class="index-search-form">
+            <%= f.label :albums, "アルバム名", class: "font-weight-bold" %>
+            <%= f.search_field :albums_cont, class: "index-field form-control" %>
+            <%= f.submit "検索", class: "btn btn-search font-weight-bold" %>
+          </div>
         <% end %>
       </div>
       <% @albumboards.each do |albumboard| %>

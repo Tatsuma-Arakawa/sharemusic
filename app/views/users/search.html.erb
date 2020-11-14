@@ -1,17 +1,15 @@
 <% provide(:title, "ユーザー検索") %>
 <div class="background-color">
   <div class="container">
-    <h1 class="text-center user-index-heading">ユーザー検索</h1>
-    <div>
-      <div class="form-group">
-        <%= form_tag(search_users_path,:method => 'get') do %>
-          <div class="user-index-search-form">
-            <%= text_field_tag :search, "", {class: "user-index-field form-control"} %>
-            <%= submit_tag 'ユーザー名検索', :name => nil, class: "btn btn-user-search font-weight-bold" %>
-          </div>
-        <% end %>
+    <h2 class="text-center users-index-heading font-weight-bold">ユーザー検索</h2>
+    <div class="form-group">
+      <%= form_tag(search_users_path,:method => 'get') do %>
+        <div class="index-search-form">
+          <%= text_field_tag :search, "", {class: "index-field form-control"} %>
+          <%= submit_tag 'ユーザー名検索', :name => nil, class: "btn btn-search font-weight-bold" %>
+        </div>
+      <% end %>
       </div>
-    </div>
     <%= render @users %>
     <div class="all-paginate">
       <%= will_paginate @users, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
