@@ -1,51 +1,56 @@
 <% provide(:title, "search") %>
 <section class="text-center search-page">
-  <div class="row d-flex justify-content-center background-color album-search-form">
-    <div class="col-lg-9">
-      <h2 class="font-weight-bold pb-4">アルバム検索</h2>
-      <%= form_with url: search_album_boards_path, method: :get, local: true do |f| %>
-        <div class="form-group">
-          <%= f.text_field :search, class:"index-field form-control" %>
-          <%= f.submit 'アルバム名検索', name: nil,class:"btn btn-search font-weight-bold" %>
-        </div>
-      <% end %>
+  <div class="background-color">
+    <div class="row d-flex justify-content-center album-search-form">
+      <div class="col-lg-9">
+        <h2 class="font-weight-bold pb-4">アルバム検索</h2>
+        <%= form_with url: search_album_boards_path, method: :get, local: true do |f| %>
+          <div class="form-group">
+            <%= f.text_field :search, class:"index-field form-control" %>
+            <%= f.submit 'アルバム名検索', name: nil,class:"btn btn-search font-weight-bold" %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
 
-  <% if @searchalbums.present? %>
-    <h2 class="font-weight-bold my-4">検索結果</h2>
-    <div class="row row-cols-1 row-cols-md-4">
-      <% @searchalbums.each_with_index do |searchalbum, index| %>
-        <div class="col-lg-3 mb-4 d-flex justify-content-center">
-          <div class="card-cascade m-1">
-            <div class="view view-cascade overlay">
-              <% if searchalbum.images.any?%>
-                <div class = "album-image background-maincolor">
-                  <%image = searchalbum.images[1]%>
-                  <%= image_tag image["url"],:size =>'242x242' %>
-                </div>
-                <%= searchalbum.name %>
-              <% else %>
-                <%= image_tag "default.jpg",:size =>'242x242' %>
-              <% end %>
-            </div>
+    <% if @searchalbums.present? %>
+    <div class="main-color search-results">
+      <div class="header-space"></div>
+      <h2 class="font-weight-bold">検索結果</h2>
+      <div class="row row-cols-1 row-cols-md-4">
+        <% @searchalbums.each_with_index do |searchalbum, index| %>
+          <div class="col-lg-3 mb-4 d-flex justify-content-center">
+            <div class="card-cascade m-1">
+              <div class="view view-cascade overlay">
+                <% if searchalbum.images.any?%>
+                  <div class = "album-image background-maincolor">
+                    <%image = searchalbum.images[1]%>
+                    <%= image_tag image["url"],:size =>'242x242' %>
+                  </div>
+                  <%= searchalbum.name %>
+                <% else %>
+                  <%= image_tag "default.jpg",:size =>'242x242' %>
+                <% end %>
+              </div>
 
-            <div>
-              <% if @albumboards.pluck("albums").include?(searchalbum.name) %>
-                <p>既にレビューページが存在します</p>
-              <% elsif searchalbum.images.present? %>
-                <%= link_to new_album_board_path(albums: searchalbum.name, icon: image["url"]) do %>
-                  <button type="button" class="btn btn-outline-primary font-weight-bold">レビューページを作成する</button>
+              <div>
+                <% if @albumboards.pluck("albums").include?(searchalbum.name) %>
+                  <p>既にレビューページが存在します</p>
+                <% elsif searchalbum.images.present? %>
+                  <%= link_to new_album_board_path(albums: searchalbum.name, icon: image["url"]) do %>
+                    <button type="button" class="btn btn-outline-primary font-weight-bold">レビューページを作成する</button>
+                  <% end %>
+                <% else %>
+                  <%= link_to  new_album_board_path(albums: searchalbum.name) do%>
+                    <button type="button">レビューページを作成する</button>
+                  <% end %>
                 <% end %>
-              <% else %>
-                <%= link_to  new_album_board_path(albums: searchalbum.name) do%>
-                  <button type="button">レビューページを作成する</button>
-                <% end %>
-              <% end %>
+              </div>
             </div>
           </div>
-        </div>
-      <%end%>
+        <%end%>
+      </div>
     </div>
-  <%end%>
+    <%end%>
+  </div>
 </section>

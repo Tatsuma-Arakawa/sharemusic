@@ -41,6 +41,12 @@ class AlbumBoardsController < ApplicationController
     end
   end
 
+  def destroy
+    AlbumBoard.find(params[:id]).destroy
+    flash[:success] = "レビューページを削除しました"
+    redirect_to request.referer
+  end
+
   private
 
     def albumboard_params

@@ -22,7 +22,10 @@
       </div>
     </div>
     <div>
-      <%= render 'board_reviews/index' %>
+    <div class="header-space"></div>
+      <% if @boardreviews.present? %>
+        <%= render 'board_reviews/index' %>
+      <% end %>
     </div>
   </div>
 <div>

@@ -3,7 +3,7 @@
   <div class="container">
     <div class="user-profile">
       <div class="show-username">
-        <h3><%= @user.username %></h3>
+        <h3 class="font-weight-bold"><%= @user.username %></h3>
       </div>
       <div class="show-image">                                                     
         <%= image_tag @user.image.url, class: "profile-image" %>
@@ -22,7 +22,7 @@
       </section>
       <% if current_user == @user %>
         <div class="show-profile-setting">
-          <%= link_to "Profile settings", edit_user_registration_path, class: "profile-setting"  %>
+          <%= link_to "プロフィール編集", edit_user_registration_path, class: "profile-setting"  %>
         </div>
       <% end %>
       <%= render "review_index" %>

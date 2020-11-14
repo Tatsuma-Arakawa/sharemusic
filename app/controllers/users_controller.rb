@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:following, :followers]
+  before_action :admin_user,     only: :destroy
 
   def index
     @users = User.paginate(page: params[:page], per_page: 10)
@@ -28,4 +29,15 @@ class UsersController < ApplicationController
     @users = User.search(params[:search])
     @users = @users.paginate(page: params[:page], per_page: 10)
   end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "ユーザーを削除しました"
+    redirect_to request.referer
+  end
+
+  private
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
+    end
 end
