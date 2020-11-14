@@ -577,6 +577,7 @@ footer {
 
 .user-index-field {
   width: 50%;
+  display: inline-block;
 }
 
 .users-profile {
@@ -601,6 +602,11 @@ footer {
   color: black;
   margin-left: 10px;
   margin-right: 30px;
+}
+
+.btn-user-search {
+  background-color: $btn-color;
+  color: white;
 }
 
 
