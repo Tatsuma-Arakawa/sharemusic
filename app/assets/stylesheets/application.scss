@@ -252,15 +252,18 @@ footer {
 
 
 /*error*/
+
+.font-error {
+  margin-left: 25%;
+}
+
+.error-list {
+  list-style-type: decimal
+}
+
 .alert {
   margin: 0;
 }
-
-.font-error {
-  margin-left: 30%;
-  color: $main-color;
-}
-
 
 
 /*album_board/search*/

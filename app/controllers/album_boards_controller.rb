@@ -49,7 +49,7 @@ class AlbumBoardsController < ApplicationController
 
   private
 
-    def albumboard_params
-      params.require(:album_board).permit(:albums, :icon)
-    end
+  def albumboard_params
+    params.require(:album_board).permit(:albums, :icon)
+  end
 end

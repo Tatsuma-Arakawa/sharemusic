@@ -3,18 +3,18 @@ class AlbumBoard < ApplicationRecord
   mount_uploader :icon, IconUploader
 
   def avg_score
-    unless self.board_reviews.empty?
-      board_reviews.average(:score).round(1).to_f
-    else
+    if board_reviews.empty?
       0.0
+    else
+      board_reviews.average(:score).round(1).to_f
     end
   end
 
   def board_review_score_percentage
-    unless self.board_reviews.empty?
-      board_reviews.average(:score).round(1).to_f*100/5
-    else
+    if board_reviews.empty?
       0.0
+    else
+      board_reviews.average(:score).round(1).to_f * 100 / 5
     end
   end
 end

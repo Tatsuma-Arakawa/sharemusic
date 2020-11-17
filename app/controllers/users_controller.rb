@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:following, :followers]
-  before_action :admin_user,     only: :destroy
+  before_action :admin_user, only: :destroy
 
   def index
     @users = User.paginate(page: params[:page], per_page: 10)
@@ -37,7 +37,8 @@ class UsersController < ApplicationController
   end
 
   private
-    def admin_user
-      redirect_to(root_url) unless current_user.admin?
-    end
+
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
+  end
 end

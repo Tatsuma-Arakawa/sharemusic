@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
-before_action :set_boardreview
+  before_action :set_boardreview
 
   def create
     @favorite = current_user.favorites.create(board_review_id: params[:id])
@@ -10,7 +10,8 @@ before_action :set_boardreview
   end
 
   private
-   def set_boardreview
-     @boardreview = BoardReview.find(params[:id])
-   end
+
+  def set_boardreview
+    @boardreview = BoardReview.find(params[:id])
+  end
 end

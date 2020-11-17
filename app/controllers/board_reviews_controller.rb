@@ -23,8 +23,8 @@ class BoardReviewsController < ApplicationController
   end
 
   private
-  
-    def boardreview_params
-      params.require(:board_review).permit(:content, :score, :user_id, :album_board_id, :title)
-    end
+
+  def boardreview_params
+    params.require(:board_review).permit(:content, :score, :user_id, :album_board_id, :title)
+  end
 end

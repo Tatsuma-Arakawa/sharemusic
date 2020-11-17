@@ -1,12 +1,12 @@
 <% provide(:title, "sign up") %>
 <div class="background-color">
+  <%= render "devise/shared/error_messages", resource: resource %>
   <div class="header-space"></div>
   <div class="container">
     <div class="main-color main-form col-lg-7">
       <h2 class="form-heading font-weight-bold">新規登録</h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="form-username form-group font-weight-bold">
           <%= f.label "ユーザーネーム(必須)" %><br />
