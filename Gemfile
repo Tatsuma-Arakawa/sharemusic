@@ -28,6 +28,7 @@ gem 'ransack'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
+  gem 'selenium-webdriver'
   gem 'rubocop-airbnb'
   gem 'factory_bot_rails'
   gem 'faker'
@@ -47,6 +48,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+  gem 'database_rewinder'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

@@ -1,12 +1,12 @@
 <% provide(:title, "edit") %>
 <div class="background-color">
+  <%= render "devise/shared/error_messages", resource: resource %>
   <div class="header-space"></div>
   <div class="container">
     <div class="main-color main-form col-lg-7">
       <h2 class="form-heading font-weight-bold">プロフィール変更</h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="form-username form-group font-weight-bold">
           <%= f.label "ユーザーネーム" %><br />

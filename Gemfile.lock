@@ -95,6 +95,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
+    database_rewinder (0.9.4)
     debug_inspector (0.0.3)
     devise (4.7.3)
       bcrypt (~> 3.0)
@@ -362,6 +363,7 @@ DEPENDENCIES
   carrierwave
   chromedriver-helper
   coffee-rails (~> 4.2)
+  database_rewinder
   devise
   devise-i18n
   devise-i18n-views
