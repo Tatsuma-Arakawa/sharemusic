@@ -15,8 +15,8 @@
           <div class = "index-albumboard">
             <%= link_to album_board_path(albumboard.id), class: "index-link" do %>
               <div class = "row">
-                <div class = "col-lg-4 index-album-image">
-                  <%= image_tag "#{albumboard.icon}",:size =>'300x300' %>
+                <div class = "col-lg-4">
+                  <%= image_tag "#{albumboard.icon}",:size =>'300x300', class: "index-album-image" %>
                 </div>
                 <div class = "col-lg-8 index-album-information">
                   <h3 class = "index-album-title"><%= albumboard.albums %></h3>

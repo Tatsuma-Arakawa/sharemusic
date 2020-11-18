@@ -7,7 +7,7 @@ class AlbumBoardsController < ApplicationController
   def index
     @q = AlbumBoard.ransack(params[:q])
     @albumboards = @q.result(distinct: true)
-    @albumboards = @albumboards.paginate(page: params[:page], per_page: 10)
+    @albumboards = @albumboards.paginate(page: params[:page], per_page: 10).order("id DESC")
   end
 
   def search

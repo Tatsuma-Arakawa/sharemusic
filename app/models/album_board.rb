@@ -1,5 +1,7 @@
 class AlbumBoard < ApplicationRecord
   has_many :board_reviews, dependent: :destroy
+  validates :albums, presence: true,
+            uniqueness: true
   mount_uploader :icon, IconUploader
 
   def avg_score

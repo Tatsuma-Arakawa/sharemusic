@@ -1,7 +1,9 @@
 FactoryBot.define do
   factory :board_review do
-    content { "MyText" }
-    album_board_id { "" }
-    user_id { "" }
+    content { "testreview" }
+    title { "testtitle" }
+    score { 5 }
+    association :user, factory: :test_user
+    association :album_board, factory: :album_board
   end
 end
