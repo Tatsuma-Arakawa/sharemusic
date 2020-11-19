@@ -4,7 +4,7 @@ FactoryBot.define do
     icon   { "test1.jpg" }
   end
 
-  factory :second_album_board, class: AlbumBoard do
+  factory :second_album_board, class: "AlbumBoard" do
     albums { "samplealbum" }
     icon   { "test2.jpg" }
   end

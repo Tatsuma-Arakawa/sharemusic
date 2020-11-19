@@ -4,6 +4,7 @@ RSpec.describe "AlbumBoard", type: :system do
   let!(:user) { FactoryBot.create(:user, email: "test@example.com") }
   let!(:albumboard) { FactoryBot.create(:album_board) }
   let!(:second_albumboard) { FactoryBot.create(:second_album_board) }
+
   before do
     visit new_user_session_path
     fill_in "user[email]", with: "test@example.com"
@@ -12,7 +13,7 @@ RSpec.describe "AlbumBoard", type: :system do
   end
 
   describe "レビューページ検索画面" do
-    before do 
+    before do
       visit album_boards_path
     end
 
@@ -43,7 +44,7 @@ RSpec.describe "AlbumBoard", type: :system do
   end
 
   describe "アルバム検索画面" do
-    before do 
+    before do
       visit search_album_boards_path
     end
 
@@ -55,11 +56,11 @@ RSpec.describe "AlbumBoard", type: :system do
   end
 
   describe "レビューページ一覧" do
-    before do 
+    before do
       visit root_path
     end
 
-    it "ログイン後はroot_pathにレビューページ一覧が表示されること"  do
+    it "ログイン後はroot_pathにレビューページ一覧が表示されること" do
       expect(page).to have_content "testalbum"
       expect(page).to have_content "samplealbum"
     end

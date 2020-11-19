@@ -5,7 +5,8 @@ RSpec.describe BoardReview, type: :model do
     @user = FactoryBot.create(:user)
     @albumboard = FactoryBot.create(:album_board)
     @boardreview = @albumboard.board_reviews.build(
-      content: "testreview", title: "testtitle", score: 5)
+      content: "testreview", title: "testtitle", score: 5
+    )
     @boardreview.user_id = @user.id
   end
 

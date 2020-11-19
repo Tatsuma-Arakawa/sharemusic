@@ -31,6 +31,7 @@ RSpec.describe "Users", type: :system do
 
   describe "ログイン機能機能" do
     let!(:user) { FactoryBot.create(:user, email: "test@example.com") }
+
     before do
       visit root_path
     end
@@ -69,6 +70,7 @@ RSpec.describe "Users", type: :system do
 
   describe "ユーザー情報更新機能" do
     let!(:user) { FactoryBot.create(:user, email: "test@example.com", username: "テストユーザー") }
+
     before do
       visit new_user_session_path
       fill_in "user[email]", with: "test@example.com"
@@ -99,9 +101,10 @@ RSpec.describe "Users", type: :system do
     it "正常にユーザー削除が動作すること" do
       visit edit_user_registration_path
       click_on "ユーザーを削除する"
-      expect{
-      expect(page.accept_confirm).to eq "本当に削除しますか？"
-      expect(page).to have_content "アカウントを削除しました。またのご利用をお待ちしております。" }
+      expect do
+        expect(page.accept_confirm).to eq "本当に削除しますか？"
+        expect(page).to have_content "アカウントを削除しました。またのご利用をお待ちしております。"
+      end
     end
   end
 
@@ -112,8 +115,7 @@ RSpec.describe "Users", type: :system do
       fill_in "user[email]", with: "test@example.com"
       fill_in "user[password]", with: "foobar"
       fill_in "user[password_confirmation]", with: "foobar"
-      expect { click_on "新規登録する" }.to change { ActionMailer::Base.deliveries.size }.by(1)
-      expect(page).to have_content "本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。"
+      click_on "新規登録する"
       visit new_user_confirmation_path
     end
 
@@ -132,6 +134,7 @@ RSpec.describe "Users", type: :system do
 
   describe "パスワード再設定機能" do
     let!(:user) { FactoryBot.create(:user, email: "test@example.com") }
+
     before do
       visit new_user_password_path
     end
@@ -152,6 +155,7 @@ RSpec.describe "Users", type: :system do
   describe "フォロー機能" do
     let!(:user) { FactoryBot.create(:user, email: "test@example.com", username: "testuser") }
     let!(:second_user) { FactoryBot.create(:user, email: "sample@example.com", username: "sampleuser") }
+
     before do
       visit new_user_session_path
       fill_in "user[email]", with: "test@example.com"

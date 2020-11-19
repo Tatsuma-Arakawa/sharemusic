@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :system do
+RSpec.describe "BoardReview", type: :system do
   let!(:user) { FactoryBot.create(:user, email: "test@example.com") }
   let!(:albumboard) { FactoryBot.create(:album_board) }
   let!(:second_albumboard) { FactoryBot.create(:second_album_board) }
+
   before do
     visit new_user_session_path
     fill_in "user[email]", with: "test@example.com"
@@ -12,7 +13,7 @@ RSpec.describe "Users", type: :system do
   end
 
   describe "レビューページ" do
-    before do 
+    before do
       visit album_board_path(albumboard.id)
     end
 
@@ -33,9 +34,10 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_content "testuser"
       visit album_board_path(albumboard.id)
       click_on "レビューを削除"
-      expect{
-      expect(page.accept_confirm).to eq "本当に削除しますか？"
-      expect(page).to have_content "レビューを削除しました" }
+      expect do
+        expect(page.accept_confirm).to eq "本当に削除しますか？"
+        expect(page).to have_content "レビューを削除しました"
+      end
     end
 
     it "タイトルがないと投稿が出来ないこと" do
