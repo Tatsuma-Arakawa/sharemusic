@@ -1,13 +1,13 @@
 <!-- 認証メールの再送信画面 -->
 <% provide(:title, "confirmations") %>
 <div class="background-color">
+<%= render "devise/shared/error_messages", resource: resource %>
   <div class="header-space"></div>
   <div class="container">
     <div class="main-color main-form col-lg-7">
       <h2 class="form-heading font-weight-bold">アカウント認証メールを再送信する</h2>
 
       <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="form-email form-group font-weight-bold">
           <%= f.label :email %><br />

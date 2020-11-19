@@ -104,4 +104,48 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_content "アカウントを削除しました。またのご利用をお待ちしております。" }
     end
   end
+
+  describe "アカウント認証機能" do
+    before do
+      visit new_user_registration_path
+      fill_in "user[username]", with: "テストユーザー"
+      fill_in "user[email]", with: "test@example.com"
+      fill_in "user[password]", with: "foobar"
+      fill_in "user[password_confirmation]", with: "foobar"
+      expect { click_on "新規登録する" }.to change { ActionMailer::Base.deliveries.size }.by(1)
+      expect(page).to have_content "本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。"
+      visit new_user_confirmation_path
+    end
+
+    it "正しくメールアドレスを入力した場合アカウント認証メールが送信されること" do
+      fill_in "user[email]", with: "test@example.com"
+      expect { click_on "認証メールを送信する" }.to change { ActionMailer::Base.deliveries.size }.by(1)
+      expect(page).to have_content "アカウントの有効化について数分以内にメールでご連絡します。"
+    end
+
+    it "メールアドレスを正しく入力しないと認証メールが送信されないこと" do
+      fill_in "user[email]", with: " "
+      expect { click_on "認証メールを送信する" }.to change { ActionMailer::Base.deliveries.size }.by(0)
+      expect(page).to have_content "エラーが発生したため ユーザ は保存されませんでした。"
+    end
+  end
+
+  describe "パスワード再設定機能" do
+    let!(:user) { FactoryBot.create(:user, email: "test@example.com") }
+    before do
+      visit new_user_password_path
+    end
+
+    it "正しくメールアドレスを入力した場合パスワード再設定メールが送信されること" do
+      fill_in "user[email]", with: "test@example.com"
+      expect { click_on "メールを送信する" }.to change { ActionMailer::Base.deliveries.size }.by(1)
+      expect(page).to have_content "パスワードの再設定について数分以内にメールでご連絡いたします。"
+    end
+
+    it "メールアドレスを正しく入力しないとパスワード再設定メールが送信されないこと" do
+      fill_in "user[email]", with: " "
+      expect { click_on "メールを送信する" }.to change { ActionMailer::Base.deliveries.size }.by(0)
+      expect(page).to have_content "エラーが発生したため ユーザ は保存されませんでした。"
+    end
+  end
 end
