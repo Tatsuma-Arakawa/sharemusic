@@ -148,4 +148,34 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_content "エラーが発生したため ユーザ は保存されませんでした。"
     end
   end
+
+  describe "フォロー機能" do
+    let!(:user) { FactoryBot.create(:user, email: "test@example.com", username: "testuser") }
+    let!(:second_user) { FactoryBot.create(:user, email: "sample@example.com", username: "sampleuser") }
+    before do
+      visit new_user_session_path
+      fill_in "user[email]", with: "test@example.com"
+      fill_in "user[password]", with: "password"
+      click_on "ログインする"
+    end
+
+    it "フォローするとフォロー、フォロワーが1増えること" do
+      visit user_path(second_user.id)
+      click_on "フォロー"
+      expect(page).to have_content "フォロー中"
+      expect(page).to have_content "1 フォロワー"
+      visit user_path(user.id)
+      expect(page).to have_content "1 フォロー中"
+    end
+
+    it "フォローしているユーザー、フォローされているユーザーが正しく表示されること" do
+      visit user_path(second_user.id)
+      click_on "フォロー"
+      click_on "1 フォロワー"
+      expect(page).to have_content "testuser"
+      visit user_path(user.id)
+      click_on "1 フォロー中"
+      expect(page).to have_content "sampleuser"
+    end
+  end
 end
