@@ -10,12 +10,12 @@
 
         <div class="form-username form-group font-weight-bold">
           <%= f.label "ユーザーネーム(必須)" %><br />
-          <%= f.text_field :username, class: "form-control" %>
+          <%= f.text_field :username, class: "form-control", placeholder: "ユーザーネームを入力してください" %>
         </div>
 
         <div class="form-email form-group font-weight-bold">
           <%= f.label "メールアドレス(必須)" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "share@music.com" %>
         </div>
 
         <div class="form-password form-group font-weight-bold">
@@ -23,12 +23,12 @@
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %>文字以上)</em>
           <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "パスワードを入力してください" %>
         </div>
 
         <div class="form-password form-group font-weight-bold">
           <%= f.label "確認用パスワード(必須)" %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "パスワードを入力してください" %>
         </div>
 
         <div class="form-image form-group font-weight-bold">

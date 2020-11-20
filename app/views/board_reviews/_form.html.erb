@@ -25,11 +25,11 @@
           <%= f.hidden_field :score, id: "rating-value" %>
           <p>タイトル</p>
           <div>
-            <%= f.text_field :title, class: "text-field-review" %>
+            <%= f.text_field :title, class: "text-field-review", placeholder: "タイトル" %>
           </div>
           <p>本文</p>
           <div>
-            <%= f.text_area :content, class: "text-area-review" %>
+            <%= f.text_area :content, class: "text-area-review", placeholder: "本文" %>
           </div>
           <div>
             <%= f.submit "投稿する" %>

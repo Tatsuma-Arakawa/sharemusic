@@ -69,16 +69,24 @@ li {
 .jumbotron { 
   background:url(sharemusic_top.jpg) center no-repeat; background-size: cover;
   margin-bottom: 0;
+  padding: 0;
+  height: 800px;
   h1 {
-    color: white;
-    opacity: 0.8;
     text-align: center;
+  }
+
+  .background-home {
+    background: rgba(0, 0, 0, 0.6);
+    height: 100%;
+  }
+
+  .home-logo {
+    margin-top: 200px;
   }
 
   .home-btn {
     text-align: center;
-    margin-top: 250px;
-    margin-bottom: 300px;
+    margin-top: 50px;
   }
 
   .btn-border {
@@ -97,21 +105,15 @@ li {
 }
 
 .navbar {
-  width: 100%;
-  .navbar-brand {
-    font-family: 'Noto Sans JP', sans-serif;
-    color: white;
-  }
-
-  .navbar-brand:hover{
-    color: white;
-    opacity: 0.7;
-    transition: 0.2s;
+  ul {
+    margin-left: auto;
   }
 
   .header-tag {
     color: white;
     padding-left: 20px;
+    cursor: pointer;
+    cursor: hand;
     &:hover {
       opacity: 0.7;
       transition: 0.2s;
@@ -140,14 +142,6 @@ li {
   background-color: black;
   padding-top: 80px;
   padding-bottom: 80px;
-  h1 {
-    color: #CC66FF;
-    text-align: center;
-    padding-bottom: 30px;
-    font-family: 'M PLUS Rounded 1c', sans-serif;
-    font-weight: bold;
-  }
-
   p {
     color: white;
     text-align: center;
@@ -402,7 +396,7 @@ footer {
 }
 
 .album-index-heading {
-  padding-top: 20px;
+  padding-top: 50px;
   text-align: center;
 }
 
@@ -577,8 +571,7 @@ footer {
 
 /*users/index*/
 .users-index-heading {
-  padding-top: 20px;
-  padding-bottom:20px ;
+  padding-top: 50px;
 }
 
 .index-search-form {
