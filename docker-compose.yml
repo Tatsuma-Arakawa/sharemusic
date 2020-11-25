@@ -4,8 +4,10 @@ services:
   db:
     image: mysql:5.7
     environment:
+      MYSQL_DATABASE: sharemusic_development
       MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: password
+      MYSQL_PASSWORD: password 
     ports:
       - "3306:3306"
     volumes:
