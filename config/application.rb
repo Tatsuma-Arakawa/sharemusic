@@ -24,5 +24,6 @@ module Sharemusic
       routing_specs: false
     end
     config.action_view.embed_authenticity_token_in_remote_forms = true
+    config.assets.initialize_on_precompile = false
   end
 end
