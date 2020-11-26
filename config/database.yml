@@ -13,9 +13,9 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: password
-  host: db
+  username: <%= ENV.fetch("MYSQL_USERNAME", "root") %>
+  password: <%= ENV.fetch("MYSQL_PASSWORD", "root") %>
+  host: <%= ENV.fetch("MYSQL_HOST", "db") %>
 
 development:
   <<: *default
@@ -49,7 +49,6 @@ test:
 #
 production:
   <<: *default
-  adapter : postgresql
   encoding: unicode
   pool    : 5
   database: sharemusic_production
