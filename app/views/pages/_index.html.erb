@@ -1,31 +1,36 @@
 <div class="background-color pages-index">
   <div class="container">
-    <h2 class = "album-index-heading font-weight-bold">レビューページ一覧</h2>
-    <div>
-      <% albumboards.each do |albumboard| %>
-        <div class = "index">
-          <div class = "index-albumboard">
-            <%= link_to album_board_path(albumboard.id), class: "index-link" do %>
-              <div class = "row">
-                <div class = "col-lg-4 index-album-image">
-                  <%= image_tag "#{albumboard.icon}",:size =>'300x300' %>
-                </div>
-                <div class = "col-lg-8 index-album-information">
-                  <h3 class = "index-album-title"><%= albumboard.albums %></h3>
-                  <div class="average-score-display index-avg">
-                    平均<%= albumboard.avg_score %>点（<%= albumboard.board_reviews.count %>件のレビュー）
+    <% if albumboards.empty? %>
+      <h2 class="album-index-heading font-weight-bold">レビューページ一が存在しません</h2>
+      <p class="text-center">アルバムを探す、からレビューページを作成してください。</p>
+    <% else %>
+      <h2 class="album-index-heading font-weight-bold">レビューページ一覧</h2>
+      <div>
+        <% albumboards.each do |albumboard| %>
+          <div class = "index">
+            <div class = "index-albumboard">
+              <%= link_to album_board_path(albumboard.id), class: "index-link" do %>
+                <div class = "row">
+                  <div class = "col-lg-4 index-album-image">
+                    <%= image_tag "#{albumboard.icon}",:size =>'300x300' %>
                   </div>
-                  <div class="star-rating index-star">
-                    <div class="star-rating-front" style="width: <%= albumboard.board_review_score_percentage %>%">★★★★★</div>
-                    <div class="star-rating-back">★★★★★</div>
+                  <div class = "col-lg-8 index-album-information">
+                    <h3 class = "index-album-title"><%= albumboard.albums %></h3>
+                    <div class="average-score-display index-avg">
+                      平均<%= albumboard.avg_score %>点（<%= albumboard.board_reviews.count %>件のレビュー）
+                    </div>
+                    <div class="star-rating index-star">
+                      <div class="star-rating-front" style="width: <%= albumboard.board_review_score_percentage %>%">★★★★★</div>
+                      <div class="star-rating-back">★★★★★</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
+    <% end %>
     <div class="all-paginate">
       <%= will_paginate @albumboards, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
     </div>
