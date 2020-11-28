@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   def check_guest
     email = resource&.email || params[:user][:email].downcase
     if email == 'guest@example.com'
-      redirect_to album_boards_path, alert: 'Guest users cannot be edited or deleted.'
+      redirect_to album_boards_path, alert: 'ゲストユーザーの設定は変更できません'
     end
   end
 
