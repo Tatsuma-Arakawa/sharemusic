@@ -13,7 +13,8 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+         :recoverable, :rememberable, :validatable
+        #:confirmable
 
   mount_uploader :image, ImageUploader
 
