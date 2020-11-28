@@ -1,8 +1,10 @@
 <div class="background-color pages-index">
   <div class="container">
     <% if albumboards.empty? %>
-      <h2 class="album-index-heading font-weight-bold">レビューページ一が存在しません</h2>
-      <p class="text-center">アルバムを探す、からレビューページを作成してください。</p>
+      <div class="else-footer">
+        <h2 class="album-index-heading font-weight-bold">レビューページ一が存在しません</h2>
+        <p class="text-center">アルバムを探す、からレビューページを作成してください。</p>
+      </div>
     <% else %>
       <h2 class="album-index-heading font-weight-bold">レビューページ一覧</h2>
       <div>

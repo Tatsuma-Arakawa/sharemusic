@@ -26,4 +26,11 @@
   <% end %>
   <div class="footer-space">
   </div>
+<% else %>
+  <div class="else-footer">
+    <h4 class="text-center font-weight-bold">レビューが存在しません</h4>
+    <% if @user == current_user %>
+      <p class="text-center font-weight-bold">お気に入りのアルバムを探してレビューしてみましょう！</p>
+    <% end %>
+  </div>
 <% end %>

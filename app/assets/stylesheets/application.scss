@@ -70,7 +70,7 @@ li {
   background:url(sharemusic_top.jpg) center no-repeat; background-size: cover;
   margin-bottom: 0;
   padding: 0;
-  height: 800px;
+  height: 1000px;
   h1 {
     text-align: center;
   }
@@ -136,6 +136,14 @@ li {
   .navbar-toggler .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
   }
+}
+
+.dropdown-menu {
+  margin-top: 15px;
+}
+
+.bg-header {
+  background-color: black;
 }
 
 .top-description {
@@ -273,6 +281,12 @@ footer {
   h2 {
     margin-bottom: 30px;
   }
+}
+
+.else-footer {
+  margin: 0;
+  padding-top: 50px;
+  padding-bottom: 300px;
 }
 
 
@@ -467,14 +481,14 @@ footer {
 }
 
 .album-create-btn {
-  margin-top: 30px;
+  margin-top: 60px;
 }
 
 .album-create-submit {
   background-color: $btn-color;
   color: white;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-bottom: 300px;
   &:hover {
     background-color: $hover-color;
     color: white;
@@ -652,7 +666,7 @@ footer {
 
 @media screen and (max-width: 992px){
   .nav-item {
-    padding-top: 5px;
+    padding-top: 10px;
     .header-tag {
       padding-left: 0;
     }
