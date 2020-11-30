@@ -7,16 +7,16 @@ RSpec.describe "Users", type: :system do
       click_on "新規登録"
     end
 
-    it "ユーザー情報を正しく入力された場合本人確認用メールが送信されること" do
+    it "ユーザー情報を正しく入力された場合ユーザー登録が成功すること" do
       fill_in "user[username]", with: "テストユーザー"
       fill_in "user[email]", with: "test@example.com"
       fill_in "user[password]", with: "foobar"
       fill_in "user[password_confirmation]", with: "foobar"
-      expect { click_on "新規登録する" }.to change { ActionMailer::Base.deliveries.size }.by(1)
-      expect(page).to have_content "本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。"
+      click_on "新規登録する"
+      expect(page).to have_content "アカウント登録が完了しました。"
     end
 
-    it "ユーザー情報が入力されない場合メールが送信されないこと" do
+    it "ユーザー情報が入力されない場合ユーザー登録が失敗すること" do
       fill_in "user[username]", with: " "
       fill_in "user[email]", with: " "
       fill_in "user[password]", with: " "
@@ -117,18 +117,6 @@ RSpec.describe "Users", type: :system do
       fill_in "user[password_confirmation]", with: "foobar"
       click_on "新規登録する"
       visit new_user_confirmation_path
-    end
-
-    it "正しくメールアドレスを入力した場合アカウント認証メールが送信されること" do
-      fill_in "user[email]", with: "test@example.com"
-      expect { click_on "認証メールを送信する" }.to change { ActionMailer::Base.deliveries.size }.by(1)
-      expect(page).to have_content "アカウントの有効化について数分以内にメールでご連絡します。"
-    end
-
-    it "メールアドレスを正しく入力しないと認証メールが送信されないこと" do
-      fill_in "user[email]", with: " "
-      expect { click_on "認証メールを送信する" }.to change { ActionMailer::Base.deliveries.size }.by(0)
-      expect(page).to have_content "エラーが発生したため ユーザ は保存されませんでした。"
     end
   end
 
