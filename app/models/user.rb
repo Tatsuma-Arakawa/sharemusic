@@ -23,7 +23,7 @@ class User < ApplicationRecord
   validates :introduce, length: { maximum: 255 }
 
   def self.guest
-    find_or_create_by(email: 'guest@example.com', username: 'guestuser') do |user|
+    find_or_create_by(email: 'guest@example.com', username: 'guestuser', introduce: "このアカウントはゲスト専用アカウントです。設定の変更などはできません。") do |user|
       user.password = SecureRandom.urlsafe_base64
       user.confirmed_at = Time.now
     end

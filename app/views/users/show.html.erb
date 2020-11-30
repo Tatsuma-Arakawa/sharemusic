@@ -9,7 +9,7 @@
         <%= image_tag @user.image.url, class: "profile-image" %>
       </div>
       <% if @user.introduce.present? %>
-        <h5>自己紹介</h5>
+        <h5 class="font-weight-bold">自己紹介</h5>
         <div class="show-introduce">
           <%= simple_format(@user.introduce) %>
         </div>
