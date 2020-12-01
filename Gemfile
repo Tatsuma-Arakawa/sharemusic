@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.8'
 
 gem 'rails', '~> 5.2.2'
+gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -26,7 +27,6 @@ gem 'ransack'
 gem 'aws-sdk-s3', '1.46.0', require: false
 
 group :development, :test do
-  gem 'mysql2', '>= 0.4.4', '< 0.6.0'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'selenium-webdriver'
