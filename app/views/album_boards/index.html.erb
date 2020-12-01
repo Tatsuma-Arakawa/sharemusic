@@ -1,0 +1,54 @@
+<% provide(:title, "レビューページ検索") %>
+<div class="background-color pages-index">
+  <div class="container">
+    <h2 class = "album-index-heading font-weight-bold pb-4">レビューページ検索</h2>
+    <div>
+      <div class="form-group">
+        <%= search_form_for @q do |f| %>
+          <div class="index-search-form">
+            <%= f.search_field :albums_cont, class: "index-field form-control", placeholder: "アルバム名" %>
+            <%= f.submit "アルバム検索", class: "btn btn-search font-weight-bold" %>
+          </div>
+        <% end %>
+      </div>
+      <% if @albumboards.empty? %>
+        <div class="else-footer">
+          <h2 class="album-index-heading font-weight-bold">レビューページ一が存在しません</h2>
+          <p class="text-center">アルバムを探す、からレビューページを作成してください。</p>
+        </div>
+      <% else %>
+        <% @albumboards.each do |albumboard| %>
+          <div class = "index">
+            <div class = "index-albumboard">
+              <%= link_to album_board_path(albumboard.id), class: "index-link" do %>
+                <div class = "row">
+                  <div class = "col-lg-4 text-center">
+                    <%= image_tag "#{albumboard.icon}",:size =>'300x300', class: "index-album-image" %>
+                  </div>
+                  <div class = "col-lg-8 index-album-information">
+                    <h3 class = "index-album-title"><%= albumboard.albums %></h3>
+                    <div class="average-score-display index-avg">
+                      平均<%= albumboard.avg_score %>点（<%= albumboard.board_reviews.count %>件のレビュー）
+                    </div>
+                    <div class="star-rating index-star">
+                      <div class="star-rating-front" style="width: <%= albumboard.board_review_score_percentage %>%">★★★★★</div>
+                      <div class="star-rating-back">★★★★★</div>
+                    </div>
+                    <% if current_user.admin? %>
+                      <div>
+                        <%= link_to "削除", albumboard, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="all-paginate">
+      <%= will_paginate @albumboards, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+    </div>
+  </div>
+</div>

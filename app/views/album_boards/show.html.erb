@@ -1,0 +1,35 @@
+<% provide(:title, @albumboard.albums) %>
+<div class="background-color">
+  <div class="container">
+    <div class="row show-album-information"> 
+      <div class="col-lg-5 show-album-image">
+        <%= image_tag "#{@albumboard.icon}",:size =>'350x350' %>
+      </div>
+      <div class="col-lg-7">
+        <div class="show-album-name">
+          <h4><%= @albumboard.albums %></h4>
+        </div>
+        <div class="average-score-display show-avg">
+          <p class="text-center">平均<%= @albumboard.avg_score %>点（<%= @albumboard.board_reviews.count %>件のレビュー)</p>
+        </div>
+        <div class="star-rating show-star">
+          <div class="star-rating-front" style="width: <%= @albumboard.board_review_score_percentage %>%">★★★★★</div>
+          <div class="star-rating-back">★★★★★</div>
+        </div>
+        <div class="reviews-form">
+          <%= render 'board_reviews/form' %>
+        </div>
+      </div>
+    </div>
+    <div>
+    <div class="header-space"></div>
+      <% if @boardreviews.present? %>
+        <%= render 'board_reviews/index' %>
+      <% else %>
+        <div class="else-footer">
+         <p class="text-center font-weight-bold">レビューが存在しません</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<div>

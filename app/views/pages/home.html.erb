@@ -1,0 +1,19 @@
+<% provide(:title, "") %>
+<% if user_signed_in? %>
+  <%= render partial: 'index', locals: { albumboards: @albumboards } %>
+<% else %>
+  <div class="center jumbotron">
+    <div class="background-home">
+      <h1><%= image_tag "sharemusic_logo.png", width: "300px", class: "home-logo" %></h1>
+      <div class="home-btn">
+        <%= link_to "ゲストユーザーでログイン", users_guest_sign_in_path, method: :post, class: "btn btn-border" %>
+      </div>
+    </div>
+  </div>
+  <div class="center top-description">
+    <div class="text-center pb-4"><%= image_tag "sharemusic_logo.png", width: "200px" %></div>
+    <p>聴きたい音楽をいつでも気軽に聴ける時代だからこそ<br>音楽について感じたこと、考えたことを文字起こしして</p>
+    <p class="end-description">音楽と真剣に向き合ってみませんか？</p>
+    </p>
+  </div>
+<% end %>

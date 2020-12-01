@@ -2,14 +2,12 @@ version: '3'
 
 services:
   db:
+    restart: always
     image: mysql:5.7
     environment:
-      MYSQL_USER: root
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root
     ports:
-      - "3306:3306"
-    volumes:
-      - ./db/mysql/volumes:/var/lib/mysql
+      - 4306:3306
 
   web:
     build: .
@@ -21,6 +19,12 @@ services:
       - 3000:3000
     depends_on:
       - db 
+      - chrome
+  chrome:
+    image: selenium/standalone-chrome:latest
+    shm_size: 256m
+    ports:
+      - 4444:4444
     tty: true
     stdin_open: true
 

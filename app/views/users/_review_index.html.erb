@@ -1,0 +1,36 @@
+ <% if @user.board_reviews.present? %>
+  <h4 class="text-center font-weight-bold"><%= @user.username %>のレビュー一覧</h4>
+  <% @review_albums.each do |review_album| %>
+    <div class="main-color user-reviews">
+      <div class="row">
+        <div class="col-lg-4 text-center font-weight-bold">
+          <%= link_to album_board_path(review_album.album_board.id) do %>
+            <div>
+              <p class="user-review-albums"><%= review_album.album_board.albums %></p>
+            </div>
+            <%= image_tag "#{review_album.album_board.icon}",:size =>'200x200' %>
+          <% end %>
+        </div>
+        <div class="col-lg-8"> 
+          <div class="user-review-heading">
+            <div class="font-weight-bold text-center">
+              <%= review_album.title %>
+              <small>評価: <%= review_album.score %>/5点</small>
+            </div>
+          </div>
+          <p><%= simple_format(review_album.content) %></p>
+          <%= render 'album_boards/favorite_btn', board_reivew: review_album %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="footer-space">
+  </div>
+<% else %>
+  <div class="else-footer">
+    <h4 class="text-center font-weight-bold">レビューが存在しません</h4>
+    <% if @user == current_user %>
+      <p class="text-center font-weight-bold">お気に入りのアルバムを探してレビューしてみましょう！</p>
+    <% end %>
+  </div>
+<% end %>

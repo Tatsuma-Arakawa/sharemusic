@@ -1,0 +1,27 @@
+<h5 class="reviews-index-heading">レビュー一覧</h5>
+<% @boardreviews.each do |boardreview| %>
+  <div class="main-color review">
+    <div class="review-content">
+      <div class="review-top">
+        <%= link_to user_path(boardreview.user.id) do %>
+          <div class="review-user">
+            <%= image_tag "#{boardreview.user.image}", :size =>'35x35', class: "review-user-image" %>
+            <p><%= boardreview.user.username %></p>
+          </div>
+        <% end %>
+        <div class="review-title">
+          <p class="font-weight-bold"><%= boardreview.title %></p>
+        </div>
+        <small>評価: <%= boardreview.score %>/5点</small>
+      </div>
+      <div>
+        <p><%= simple_format(boardreview.content) %></p>
+      </div>
+      <%= render 'album_boards/favorite_btn', board_reivew: boardreview %>
+      <% if current_user? boardreview.user %>
+        <%= link_to "レビューを削除", album_board_board_review_path(boardreview.album_board.albums, boardreview.id), method: :delete,
+        data: { confirm: "本当に削除しますか？" } %>
+      <% end %>
+    </div>
+  </div>
+<% end %> 
