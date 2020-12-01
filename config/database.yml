@@ -49,8 +49,7 @@ test:
 #
 production:
   <<: *default
-  encoding: unicode
-  pool    : 5
-  database: sharemusic_production
-  username: sharemusic
-  password: <%= ENV['SHAREMUSIC_DATABASE_PASSWORD'] %>
+  database: <%= Rails.application.credentials.db[:database] %>
+  username: <%= Rails.application.credentials.db[:username] %>
+  password: <%= Rails.application.credentials.db[:password] %>
+  socket: <%= Rails.application.credentials.db[:socket] %>
