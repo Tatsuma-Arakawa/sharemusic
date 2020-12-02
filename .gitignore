@@ -22,14 +22,9 @@
 
 /public/assets
 .byebug_history
-
-# Ignore master key for decrypting credentials and more.
 /config/master.key
 .DS_Store
-<<<<<<< HEAD
 /db/mysql/
-=======
 /.env
 /db/mysql/
 /public
->>>>>>> development3
