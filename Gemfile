@@ -25,7 +25,6 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap4'
 gem 'ransack'
 gem 'aws-sdk-s3', '1.46.0', require: false
-gem 'mini_racer'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
