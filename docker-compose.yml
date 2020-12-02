@@ -17,6 +17,7 @@ services:
       - gem_data:/usr/local/bundle
     ports:
       - 3000:3000
+    stdin_open: true 
     depends_on:
       - db 
       - chrome
