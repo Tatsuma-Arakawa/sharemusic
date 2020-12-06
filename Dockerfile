@@ -12,3 +12,5 @@ COPY Gemfile.lock /sharemusic/Gemfile.lock
 
 RUN bundle install
 COPY . /sharemusic
+
+RUN apt-get install -y vim

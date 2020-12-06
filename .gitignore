@@ -23,7 +23,6 @@
 /public/assets
 .byebug_history
 /config/master.key
-/config/credentials.yml.enc
 .DS_Store
 /db/mysql/
 /.env
