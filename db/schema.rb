@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_11_14_034812) do
 
   create_table "album_boards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "albums", null: false
-    t.text "icon"
+    t.string "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
