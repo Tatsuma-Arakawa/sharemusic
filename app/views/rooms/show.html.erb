@@ -19,6 +19,12 @@
             <div class="balloon2-top">
               <p><%=simple_format(m.content)%></p>
             </div>
+            <div class="col-lg-12">
+              <% if current_user? m.user %>
+                <%= link_to "削除", message_path(m.id), method: :delete,
+                data: { confirm: "本当に削除しますか？" }, class: "message-destroy" %>
+              <% end %>
+            </div>
             <hr>
           </div>
         </div>
