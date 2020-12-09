@@ -1,0 +1,7 @@
+<%= form_for @message do |f| %>
+  <%= f.text_area :content, class: "text-area-message", placeholder: "メッセージを入力して下さい" %>
+  <%= f.hidden_field :room_id, :value => @room.id %>
+  <br>
+  <%= f.submit "投稿する" %>
+<% end %>
+<div class="footer-space"></div>

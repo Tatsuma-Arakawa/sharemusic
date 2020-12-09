@@ -357,6 +357,85 @@ footer {
 
 
 
+/*rooms/show*/
+
+.room-users {
+  padding-top: 20px;
+}
+
+.message-icon {
+  font-size: 1.3em;
+}
+
+.message-btn {
+  vertical-align: top;
+}
+
+.message-users {
+  border-radius: 50px;
+  margin-right: 10px;
+}
+
+.message-user {
+  border-radius: 50px;
+  margin-right: 10px;
+}
+
+.message-form {
+  border-top: solid 1px gray;
+  padding-top: 10px;
+}
+
+.balloon2-top {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #FFF;
+  border: solid 3px #555;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.balloon2-top:before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  left: 25px;
+  margin-left: -15px;
+  border: 12px solid transparent;
+  border-bottom: 12px solid #FFF;
+  z-index: 2;
+}
+
+.balloon2-top:after {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 25px;
+  margin-left: -17px;
+  border: 14px solid transparent;
+  border-bottom: 14px solid #555;
+  z-index: 1;
+}
+
+.balloon2-top p {
+  margin: 0;
+  padding: 0;
+}
+
+.text-area-message {
+  width: 100%;
+  height: 50px;
+  max-width: 800px;
+}
+
+
+
 /*board_reviews/_form*/
 .rating-box .ratings .fa{
   font-size: 30px;
