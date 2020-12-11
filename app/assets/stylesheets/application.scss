@@ -64,6 +64,18 @@ li {
   padding-top: 20px;
 }
 
+.notification {
+  color: orange;
+  padding-left: 20px;
+  margin: 0;
+  cursor: pointer;
+  cursor: hand;
+  &:hover {
+    opacity: 0.7;
+    transition: 0.2s;
+  }
+}
+
 
 /*homepage*/
 .jumbotron { 
@@ -752,6 +764,9 @@ footer {
   .nav-item {
     padding-top: 10px;
     .header-tag {
+      padding-left: 0;
+    }
+    .notification {
       padding-left: 0;
     }
   }

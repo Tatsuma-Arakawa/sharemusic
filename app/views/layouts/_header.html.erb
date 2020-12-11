@@ -18,6 +18,15 @@
           <li class="nav-item">
             <%= link_to 'ユーザー検索', search_users_path, class: "header-tag", data: {"turbolinks" => false} %>
           </li>
+          <li class="nav-item">
+            <%= link_to(notifications_path) do %>
+              <% if unchecked_notifications.any? %>
+                <p class="notification"><%= unchecked_notifications.count %>件の通知</p>
+              <% else %>
+                <p class="header-tag">通知なし</p>
+              <% end %>
+            <% end %>
+          </li>
           <li class="nav-item dropdown">
             <a class="dropdown-toggle header-tag" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" turbolinks="false" data-turbolinks= "false">
               マイページ
