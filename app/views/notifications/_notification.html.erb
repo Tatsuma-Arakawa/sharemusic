@@ -3,16 +3,16 @@
 <div>
  <%= link_to user_path(visitor) do %>
     <%= image_tag visitor.image.url, :size =>'30x30', class: "small-user" %>
-    <p class="text-dark notification-user"><%= visitor.username %>さんが</p>
+    <p class="text-dark notification-user font-weight-bold"><%= visitor.username %>さんが</p>
  <% end %>
  <% case notification.action %>
   <% when 'dm' then %>
-    あなたにメッセージを送りました
+    <p class="notification-user font-weight-bold">あなたにメッセージを送りました</p>
   <% when 'favorite' then %>
-    <%= link_to "あなたのレビュー", notification.board_review.album_board %>
-    にいいねしました
+    <%= link_to "あなたのレビュー", notification.board_review.album_board, class: "text-dark font-weight-bold" %>
+    <p class="notification-user font-weight-bold">にいいねしました</p>
   <% when 'follow' then %>
-    あなたをフォローしました
+    <p class="notification-user font-weight-bold">あなたをフォローしました</p>
 <% end %>
 </div>
 <hr>

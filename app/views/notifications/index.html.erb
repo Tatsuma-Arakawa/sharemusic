@@ -1,12 +1,14 @@
 <% provide(:title, "通知") %>
 <div class="background-color">
   <div class="container">
-  <h5 class="font-weight-bold notification-heading">通知</h5><hr>
+  <h5 class="font-weight-bold notification-heading">通知</h5>
+   <%= link_to "削除", notification_path(@notifications), method: :delete, data: { confirm: "本当に削除しますか?" } ,class: "fa fa-trash notificatin-delete" %>
+  <hr>
     <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
     <% if notifications.exists? %>
         <%= render notifications %>
     <% else %>
-        <p>通知はございません</p>
+        <p class="font-weight-bold">通知はございません</p>
     <% end %>
   </div>
   <div class="footer-space"></div>
