@@ -2,7 +2,8 @@
 <% visited = notification.visited %>
 <div>
  <%= link_to user_path(visitor) do %>
-    <%= visitor.username %>さんが
+    <%= image_tag visitor.image.url, :size =>'30x30', class: "small-user" %>
+    <p class="text-dark notification-user"><%= visitor.username %>さんが</p>
  <% end %>
  <% case notification.action %>
   <% when 'dm' then %>
@@ -14,3 +15,4 @@
     あなたをフォローしました
 <% end %>
 </div>
+<hr>

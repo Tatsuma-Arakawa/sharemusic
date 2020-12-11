@@ -389,7 +389,7 @@ footer {
   margin-right: 10px;
 }
 
-.message-user {
+.small-user {
   border-radius: 50px;
   margin-right: 10px;
 }
@@ -756,6 +756,17 @@ footer {
 .users-introduce {
   margin-top: 10px;
   border-top: $sub-color solid 1px;
+}
+
+
+
+/*notification*/
+.notification-heading {
+  padding-top: 20px;
+}
+
+.notification-user {
+  display: inline-block;
 }
 
 
