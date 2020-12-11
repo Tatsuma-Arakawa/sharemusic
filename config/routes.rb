@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notifications/index'
   root 'pages#home'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -25,7 +26,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :favorites, only: [:create, :destroy]
-  resources :messages, :only => [:create, :destroy]
-  resources :rooms, :only => [:create, :show]
+  resources :favorites,     only: [:create, :destroy]
+  resources :messages,      only: [:create, :destroy]
+  resources :rooms,         only: [:create, :show]
+  resources :notifications, only: [:index]
 end
