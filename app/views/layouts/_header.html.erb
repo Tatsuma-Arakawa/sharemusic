@@ -21,9 +21,9 @@
           <li class="nav-item">
             <%= link_to(notifications_path) do %>
               <% if unchecked_notifications.any? %>
-                <p class="notification"><%= unchecked_notifications.count %>件の通知</p>
+                <p class="notification"><%= unchecked_notifications.count %>件の新規通知</p>
               <% else %>
-                <p class="header-tag">通知なし</p>
+                <p class="header-tag">新規通知なし</p>
               <% end %>
             <% end %>
           </li>
