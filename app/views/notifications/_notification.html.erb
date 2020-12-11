@@ -2,9 +2,15 @@
 <% visited = notification.visited %>
 <div>
  <%= link_to user_path(visitor) do %>
-     <%= visitor.username %>さんが
+    <%= visitor.username %>さんが
  <% end %>
- <% if notification.action=='dm' %>
-    あなたにDMを送りました
- <% end %>
+ <% case notification.action %>
+  <% when 'dm' then %>
+    あなたにメッセージを送りました
+  <% when 'favorite' then %>
+    <%= link_to "あなたのレビュー", notification.board_review.album_board %>
+    にいいねしました
+  <% when 'follow' then %>
+    あなたをフォローしました
+<% end %>
 </div>
