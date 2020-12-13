@@ -1,5 +1,5 @@
 User.create!(
-  username:              "サンプル",
+  username:              "管理者",
   email:                 "example@gmail.com",
   password:              "foobar",
   password_confirmation: "foobar",
@@ -7,55 +7,55 @@ User.create!(
   confirmed_at:           Time.now )
 
 User.create!(
-  username:              "サンプル2",
+  username:              "花子",
   email:                 "example2@gmail.com",
   password:              "foobar",
   password_confirmation: "foobar" )
 
 User.create!(
-  username:              "サンプル3",
+  username:              "山田",
   email:                 "example3@gmail.com",
   password:              "foobar",
   password_confirmation: "foobar" )
 
 User.create!(
-  username:              "サンプル4",
+  username:              "佐々木",
   email:                 "example4@gmail.com",
   password:              "foobar",
   password_confirmation: "foobar" )
 
 User.create!(
-  username:              "サンプル5",
+  username:              "鈴木",
   email:                 "example5@gmail.com",
   password:              "foobar",
   password_confirmation: "foobar" )
 
 User.create!(
-  username:              "サンプル6",
+  username:              "圭太",
   email:                 "example6@gmail.com",
   password:              "foobar",
   password_confirmation: "foobar" )
 
 User.create!(
-  username:              "サンプル7",
+  username:              "マイケル",
   email:                 "example7@gmail.com",
   password:              "foobar",
   password_confirmation: "foobar" )
 
 User.create!(
-  username:              "サンプル8",
+  username:              "ボブ",
   email:                 "example8@gmail.com",
   password:              "foobar",
   password_confirmation: "foobar" )
 
 User.create!(
-  username:              "サンプル9",
+  username:              "ジャック",
   email:                 "example9@gmail.com",
   password:              "foobar",
   password_confirmation: "foobar" )
 
 User.create!(
-  username:              "サンプル１0",
+  username:              "ケニー",
   email:                 "example10@gmail.com",
   password:              "foobar",
   password_confirmation: "foobar" )
