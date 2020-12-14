@@ -28,7 +28,7 @@ RSpec.describe "Notification", type: :system, js: true do
     it "DMの通知がきている" do
       expect(page).to have_content "1件の新規通知"
       click_on "1件の新規通知"
-      expect(page).to have_content "testuserさんが あなたにメッセージを送りました"
+      expect(page).to have_content "testuserさんが あなたにメッセージ を送りました"
     end
   end
 

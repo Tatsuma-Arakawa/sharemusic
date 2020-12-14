@@ -7,7 +7,8 @@
  <% end %>
  <% case notification.action %>
   <% when 'dm' then %>
-    <p class="notification-user font-weight-bold">あなたにメッセージを送りました</p>
+    <%= link_to "あなたにメッセージ", notification.room, class: "text-dark font-weight-bold" %>
+    <p class="notification-user font-weight-bold">を送りました</p>
   <% when 'favorite' then %>
     <%= link_to "あなたのレビュー", notification.board_review.album_board, class: "text-dark font-weight-bold" %>
     <p class="notification-user font-weight-bold">にいいねしました</p>
