@@ -27,7 +27,7 @@ class MessagesController < ApplicationController
   def destroy
     @message = current_user.messages.find(params[:id])
     if @message.destroy
-      flash[:notice] = "レビューを削除しました"
+      flash[:notice] = "メッセージを削除しました"
       redirect_to request.referer
     end
   end

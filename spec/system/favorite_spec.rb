@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Favorite", type: :system , js: true do 
+RSpec.describe "Favorite", type: :system, js: true do 
   describe "いいね機能" do
     let!(:user) { FactoryBot.create(:user, email: "test@example.com") }
     let!(:second_user) { FactoryBot.create(:user, email: "sample@example.com") }
