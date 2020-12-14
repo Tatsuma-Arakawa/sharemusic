@@ -22,15 +22,6 @@ class AlbumBoardsController < ApplicationController
     @album_icon = params[:icon]
   end
 
-  def show
-    @albumboard = AlbumBoard.find(params[:id])
-    @boardreview = BoardReview.new
-    @boardreviews = @albumboard.board_reviews.includes([:user]).order(id: :desc)
-  end
-
-  def edit
-  end
-
   def create
     @albumboard = AlbumBoard.new(albumboard_params)
     @albumboard.remote_icon_url = params[:album_icon]
@@ -39,6 +30,12 @@ class AlbumBoardsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @albumboard = AlbumBoard.find(params[:id])
+    @boardreview = BoardReview.new
+    @boardreviews = @albumboard.board_reviews.includes([:user]).order(id: :desc)
   end
 
   def destroy
