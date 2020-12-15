@@ -2,6 +2,7 @@ require 'rails_helper'
 RSpec.describe "Users", type: :request do
   let!(:user) { FactoryBot.create(:user, email: "test@example.com", introduce: "testintroduce") }
   let!(:second_user) { FactoryBot.create(:user, email: "sample@example.com", introduce: "sampleintroduce") }
+
   describe "GET/users/search" do
     before do
       sign_in user

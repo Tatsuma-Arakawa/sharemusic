@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "BoardReviews", type: :request do
   let!(:user) { FactoryBot.create(:user) }
   let!(:albumboard) { FactoryBot.create(:album_board) }
-  let!(:boardreview) { create(:board_review, content: "testreview", title: "testtitle", score: "5",
-                              user_id: user.id, album_board_id: albumboard.id) }
+  let!(:boardreview) { create(:board_review, content: "testreview", title: "testtitle", score: "5", user_id: user.id, album_board_id: albumboard.id) }
+
   describe "GET/album_board" do
     before do
       sign_in user

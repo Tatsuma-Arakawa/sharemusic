@@ -24,5 +24,5 @@ class BoardReview < ApplicationRecord
       end
       notification.save if notification.valid?
     end
-  end      
+  end
 end

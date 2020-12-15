@@ -6,7 +6,8 @@ RSpec.describe "Rooms", type: :request do
   let!(:room) { FactoryBot.create(:room) }
   let!(:entry) { FactoryBot.create(:entry, user_id: user.id, room_id: room.id) }
   let!(:second_entry) { FactoryBot.create(:entry, user_id: second_user.id, room_id: room.id) }
-  let!(:message) { FactoryBot.create(:message, user_id: user.id, room_id: room.id, content: "テストメッセージ") } 
+  let!(:message) { FactoryBot.create(:message, user_id: user.id, room_id: room.id, content: "テストメッセージ") }
+
   describe "GET/rooms/show" do
     before do
       sign_in user

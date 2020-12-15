@@ -108,18 +108,6 @@ RSpec.describe "Users", type: :system do
     end
   end
 
-  describe "アカウント認証機能" do
-    before do
-      visit new_user_registration_path
-      fill_in "user[username]", with: "テストユーザー"
-      fill_in "user[email]", with: "test@example.com"
-      fill_in "user[password]", with: "foobar"
-      fill_in "user[password_confirmation]", with: "foobar"
-      click_on "新規登録する"
-      visit new_user_confirmation_path
-    end
-  end
-
   describe "パスワード再設定機能" do
     let!(:user) { FactoryBot.create(:user, email: "test@example.com") }
 

@@ -17,7 +17,8 @@ class MessagesController < ApplicationController
       if notification.visitor_id == notification.visited_id
         notification.checked = true
       end
-        notification.save if notification.valid?
+      notification.save
+        if notification.valid?
         redirect_to "/rooms/#{@message.room_id}"
       else
         redirect_back(fallback_location: root_path)

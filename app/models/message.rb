@@ -4,7 +4,7 @@ class Message < ApplicationRecord
   has_many   :notifications, dependent: :destroy
 
   validates :content, presence: true,
-                    length: { maximum: 1000 }
+                      length: { maximum: 1000 }
 
   def create_notification_message!(current_user)
     @roommembernotme = Entry.where(room_id: @room.id).where.not(user_id: current_user.id)

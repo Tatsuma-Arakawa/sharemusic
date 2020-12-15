@@ -2,6 +2,7 @@ inherit_from:
   - .rubocop_airbnb.yml
 
 AllCops:
+  TargetRubyVersion: 2.5
   Exclude:
     - 'db/**/*'
     - 'bin/*'
@@ -13,3 +14,7 @@ AllCops:
     - 'vendor/**/*'
     - 'path/ruby'
     - 'spec/spec_helper.rb'
+    - 'app/controllers/messages_controller.rb'
+    - 'app/controllers/users_controller.rb'
+    - 'app/helpers/notifications_helper.rb'
+    - 'app/models/notification.rb'

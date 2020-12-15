@@ -4,6 +4,7 @@ RSpec.describe "AlbumBoards", type: :request do
   let!(:user) { FactoryBot.create(:user) }
   let!(:second_user) { FactoryBot.create(:user, email: "sample@example.com") }
   let!(:albumboard) { FactoryBot.create(:album_board) }
+
   describe "GET/album_boards" do
     before do
       sign_in user

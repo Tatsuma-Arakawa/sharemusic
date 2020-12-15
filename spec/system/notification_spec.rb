@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Notification", type: :system, js: true do 
+RSpec.describe "Notification", type: :system, js: true do
   let!(:user) { FactoryBot.create(:user, email: "test@example.com", username: "testuser") }
   let!(:second_user) { FactoryBot.create(:user, email: "sample@example.com", username: "sampleuser") }
   let!(:room) { FactoryBot.create(:room) }
