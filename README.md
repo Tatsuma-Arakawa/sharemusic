@@ -1,6 +1,7 @@
 # アプリ概要
 音楽アルバムのレビューを様々な人とシェア出来るサービスです。
-![Uploading sharemusic_top.png…]()
+<img src="sharemusic_top.png">
+
 
 ### このアプリを開発した理由
 いつでも聴きたい音楽が聴ける現代だからこそ<br>
