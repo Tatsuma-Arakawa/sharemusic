@@ -25,21 +25,28 @@
                   <div class = "col-lg-4 text-center">
                     <%= image_tag "#{albumboard.icon}",:size =>'300x300', class: "index-album-image" %>
                   </div>
-                  <div class = "col-lg-8 index-album-information">
-                    <h3 class = "index-album-title"><%= albumboard.albums %></h3>
-                    <div class="average-score-display index-avg">
-                      平均<%= albumboard.avg_score %>点（<%= albumboard.board_reviews.count %>件のレビュー）
+                  <% if albumboard.board_reviews.empty? %>
+                    <div class = "col-lg-8 index-album-information">
+                      <h3 class = "index-album-title font-weight-bold">レビューはありません</h3>
+                      <h4 class = "index-album-title font-weight-bold">このアルバムをレビューしてみませんか？</h4>
                     </div>
-                    <div class="star-rating index-star">
-                      <div class="star-rating-front" style="width: <%= albumboard.board_review_score_percentage %>%">★★★★★</div>
-                      <div class="star-rating-back">★★★★★</div>
-                    </div>
-                    <% if current_user.admin? %>
-                      <div>
-                        <%= link_to "削除", albumboard, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+                  <% else %>
+                    <div class = "col-lg-8 index-album-information">
+                      <h3 class = "index-album-title"><%= albumboard.albums %></h3>
+                      <div class="average-score-display index-avg">
+                        平均<%= albumboard.avg_score %>点（<%= albumboard.board_reviews.count %>件のレビュー）
                       </div>
-                    <% end %>
-                  </div>
+                      <div class="star-rating index-star">
+                        <div class="star-rating-front" style="width: <%= albumboard.board_review_score_percentage %>%">★★★★★</div>
+                        <div class="star-rating-back">★★★★★</div>
+                      </div>
+                      <% if current_user.admin? %>
+                        <div>
+                          <%= link_to "削除", albumboard, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+                        </div>
+                      <% end %>
+                    </div>
+                  <% end %>
                 </div>
               <% end %>
             </div>
