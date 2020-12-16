@@ -27,8 +27,8 @@
                   </div>
                   <% if albumboard.board_reviews.empty? %>
                     <div class = "col-lg-8 index-album-information">
-                      <h3 class = "index-album-title font-weight-bold">レビューはありません</h3>
-                      <h4 class = "index-album-title font-weight-bold">このアルバムをレビューしてみませんか？</h4>
+                      <h3 class = "index-album-title"><%= albumboard.albums %></h3>
+                      <h5 class = "index-album-title font-weight-bold">レビューはありません<br>このアルバムをレビューしてみませんか？</h5>
                     </div>
                   <% else %>
                     <div class = "col-lg-8 index-album-information">
