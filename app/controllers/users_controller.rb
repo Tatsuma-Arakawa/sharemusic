@@ -2,13 +2,9 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:following, :followers]
   before_action :admin_user, only: :destroy
 
-  def index
-    @users = User.paginate(page: params[:page], per_page: 10)
-  end
-
   def show
     @user = User.find(params[:id])
-    @review_albums = @user.board_reviews.paginate(page: params[:page], per_page: 10)
+    @review_albums = @user.board_reviews.paginate(page: params[:page], per_page: 10).order("id DESC")
     @currentUserEntry = Entry.where(user_id: current_user.id)
     @userEntry = Entry.where(user_id: @user.id)
     if @user.id == current_user.id
@@ -45,7 +41,7 @@ class UsersController < ApplicationController
 
   def search
     @users = User.search(params[:search])
-    @users = @users.paginate(page: params[:page], per_page: 10)
+    @users = @users.paginate(page: params[:page], per_page: 10).order("id DESC")
   end
 
   def destroy

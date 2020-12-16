@@ -1,4 +1,4 @@
- <% if @user.board_reviews.present? %>
+<% if @user.board_reviews.present? %>
   <h4 class="text-center font-weight-bold"><%= @user.board_reviews.count %>件のレビュー</h4>
   <% @review_albums.each do |review_album| %>
     <div class="main-color user-reviews">
