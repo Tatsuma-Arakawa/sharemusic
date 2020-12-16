@@ -16,16 +16,23 @@
                   <div class = "col-lg-4 index-album-image">
                     <%= image_tag "#{albumboard.icon}",:size =>'300x300' %>
                   </div>
-                  <div class = "col-lg-8 index-album-information">
-                    <h3 class = "index-album-title"><%= albumboard.albums %></h3>
-                    <div class="average-score-display index-avg">
-                      平均<%= albumboard.avg_score %>点（<%= albumboard.board_reviews.count %>件のレビュー）
+                  <% if albumboard.board_reviews.empty? %>
+                    <div class = "col-lg-8 index-album-information">
+                      <h3 class = "index-album-title font-weight-bold">レビューはありません</h3>
+                      <h4 class = "index-album-title font-weight-bold">このアルバムをレビューしてみませんか？</h4>
                     </div>
-                    <div class="star-rating index-star">
-                      <div class="star-rating-front" style="width: <%= albumboard.board_review_score_percentage %>%">★★★★★</div>
-                      <div class="star-rating-back">★★★★★</div>
+                  <% else %>
+                    <div class = "col-lg-8 index-album-information">
+                      <h3 class = "index-album-title"><%= albumboard.albums %></h3>
+                      <div class="average-score-display index-avg">
+                        平均<%= albumboard.avg_score %>点（<%= albumboard.board_reviews.count %>件のレビュー）
+                      </div>
+                      <div class="star-rating index-star">
+                        <div class="star-rating-front" style="width: <%= albumboard.board_review_score_percentage %>%">★★★★★</div>
+                        <div class="star-rating-back">★★★★★</div>
+                      </div>
                     </div>
-                  </div>
+                  <% end %>
                 </div>
               <% end %>
             </div>
