@@ -1,5 +1,5 @@
  <% if @user.board_reviews.present? %>
-  <h4 class="text-center font-weight-bold"><%= @user.username %>のレビュー一覧</h4>
+  <h4 class="text-center font-weight-bold"><%= @user.board_reviews.count %>件のレビュー</h4>
   <% @review_albums.each do |review_album| %>
     <div class="main-color user-reviews">
       <div class="row">
@@ -20,10 +20,18 @@
           </div>
           <p><%= simple_format(review_album.content) %></p>
           <%= render 'album_boards/favorite_btn', board_reivew: review_album %>
+          <% if current_user? review_album.user %>
+            <%= link_to album_board_board_review_path(review_album.album_board.albums, review_album.id), method: :delete, data: { confirm: "本当に削除しますか？" } do %>
+              <i class="far fa-trash-alt"></i></i>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
   <% end %>
+  <div class="all-paginate">
+    <%= will_paginate @review_albums, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+  </div>
   <div class="footer-space">
   </div>
 <% else %>

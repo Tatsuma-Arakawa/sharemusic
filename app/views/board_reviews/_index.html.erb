@@ -1,4 +1,4 @@
-<h5 class="reviews-index-heading">レビュー一覧</h5>
+<h5 class="reviews-index-heading"><%= @boardreviews.count %>件のレビュー</h5>
 <% @boardreviews.each do |boardreview| %>
   <div class="main-color review">
     <div class="review-content">
@@ -19,9 +19,13 @@
       </div>
       <%= render 'album_boards/favorite_btn', board_reivew: boardreview %>
       <% if current_user? boardreview.user %>
-        <%= link_to "レビューを削除", album_board_board_review_path(boardreview.album_board.albums, boardreview.id), method: :delete,
-        data: { confirm: "本当に削除しますか？" } %>
+        <%= link_to album_board_board_review_path(boardreview.album_board.albums, boardreview.id), method: :delete, data: { confirm: "本当に削除しますか？" } do %>
+          <i class="far fa-trash-alt"></i></i>
+        <% end %>
       <% end %>
     </div>
   </div>
-<% end %> 
+<% end %>
+<div class="all-paginate">
+  <%= will_paginate @boardreviews, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+</div> 

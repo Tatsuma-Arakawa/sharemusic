@@ -35,7 +35,7 @@ class AlbumBoardsController < ApplicationController
   def show
     @albumboard = AlbumBoard.find(params[:id])
     @boardreview = BoardReview.new
-    @boardreviews = @albumboard.board_reviews.includes([:user]).order(id: :desc)
+    @boardreviews = @albumboard.board_reviews.includes([:user]).paginate(page: params[:page], per_page: 10).order("id DESC")
   end
 
   def destroy
