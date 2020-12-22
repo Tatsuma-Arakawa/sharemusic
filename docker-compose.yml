@@ -31,7 +31,7 @@ services:
       - 8080:80
     depends_on:
       - web
-
+      
   chrome:
     image: selenium/standalone-chrome:latest
     shm_size: 256m
