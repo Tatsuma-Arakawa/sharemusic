@@ -22,7 +22,16 @@ services:
       - ./log:/myapp/log
     ports:
       - 3000:3000
-      
+
+  nginx:
+    image: nginx
+    volumes:
+       - ./public:/usr/share/nginx/html
+    ports:
+      - 8080:80
+    depends_on:
+      - web
+
   chrome:
     image: selenium/standalone-chrome:latest
     shm_size: 256m
