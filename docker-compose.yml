@@ -10,14 +10,18 @@ services:
       - 3306:3306
 
   web:
+    container_name: sharemusic_web_prod
     build: .
-    image: web_singlecontainer
+    environment:
+      RAILS_ENV: production
+    command: bundle exec puma -C config/puma.rb
     volumes:
-      - /app/log # persists log
+      - .:/myapp
+      - ./public:/myapp/public
+      - ./tmp:/myapp/tmp
+      - ./log:/myapp/log
     ports:
-      - "80:80"
-    depends_on:
-      - db
+      - 3000:3000
       
   chrome:
     image: selenium/standalone-chrome:latest
