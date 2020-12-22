@@ -16,6 +16,3 @@ COPY . /sharemusic
 RUN apt-get install -y vim
 
 CMD ["rails", "server", "-b", "0.0.0.0"] 
-
-FROM nginx
-COPY ./html /usr/share/nginx/html
