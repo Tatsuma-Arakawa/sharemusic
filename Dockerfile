@@ -7,10 +7,6 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
 RUN mkdir /sharemusic
 WORKDIR /sharemusic
 
-ADD nginx.conf /etc/nginx/sites-available/app.conf
-RUN rm -f /etc/nginx/sites-enabled/default && \
-    ln -s /etc/nginx/sites-available/app.conf /etc/nginx/sites-enabled/app.conf
-
 COPY Gemfile /sharemusic/Gemfile
 COPY Gemfile.lock /sharemusic/Gemfile.lock
 
