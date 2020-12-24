@@ -10,8 +10,6 @@ jobs:
       environment:
         - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
         - MYSQL_ROOT_HOST: '127.0.0.1'
-        - MYSQL_USERNAME: 'root'
-        - MYSQL_PASSWORD: 'password'
 
     working_directory: ~/sharemusic 
 
