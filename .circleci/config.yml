@@ -1,50 +1,70 @@
 version: 2.1
 jobs:
   build:
-    rspec:
-      working_directory: ~/sharemusic
-      docker:
-        - image: circleci/ruby
-      steps:
-        - checkout
-        - setup_remote_docker
-        - run:
-            name: Setup environment variable
-            command: |
-              echo "export COMPOSE_FILE=docker-compose.ci.yml" >> $BASH_ENV
-        - run:
-            name: Start containers and verify it is working
-            command: |
-              set -x
-              docker-compose up -d
-              docker exec potepanec_app curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
-        - run:
-            name: Setup database
-            command: |
-              docker-compose exec web bash -c 'yes n | bundle exec rails g spree:install --migrate --seed --sample --auto_accept'
-        - run:
-            name: Run rspec
-            command: docker-compose exec web rspec
-
-  rubocop:
-    working_directory: ~/
     docker:
-      - image: circleci/ruby:2.5.8
+    - image: circleci/ruby:2.5.8-node-browsers
+      environment:
+        - BUNDLER_VERSION: 1.7.3
+        - RAILS_ENV: 'test'
+    - image: circleci/mysql:5.7
+      environment:
+        - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+        - MYSQL_ROOT_HOST: '127.0.0.1'
+        - MYSQL_USERNAME: 'root'
+        - MYSQL_PASSWORD: 'password'
+        - S3_ACCESS_KEY_ID: 'AKIAXCPGPWN5YDX2BJLP'
+        - S3_SECRET_ACCESS_KEY: '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'
+
+    working_directory: ~/sharemusic 
+
+
     steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-            - gemfiles-{{ .Branch }}-
-            - gemfiles-master-
-      - run: bundle config --local path vendor/bundle
-      - run:
-          name: bundle install
-          command: bundle check || bundle install --jobs=8 --clean
-      - run:
-          name: Run rubocop
-          command: bundle exec rubocop --parallel
-      - save_cache:
-          key: gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
+    - checkout
+
+    - restore_cache:
+        keys:
+        - v1-dependencies-{{ checksum "Gemfile.lock" }}
+        - v1-dependencies-
+
+    - run:
+        name: install dependencies
+        command: |
+          gem install bundler -v 1.7.3
+          bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+    - save_cache:
+        paths:
+        - ./vendor/bundle
+        key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+    # Database setup
+    - run: mv ./config/database.yml.ci ./config/database.yml
+
+    # Database setup
+    - run:
+        name: Databasesetup
+        command: |
+           bundle exec rake db:create
+           bundle exec rake db:schema:load
+
+    # run tests!
+    - run:
+        name: Run rspec
+        command: |
+          mkdir /tmp/test-results
+          TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+            circleci tests split --split-by=timings)"
+
+          docker-compose exec web rspec \
+            --format progress \
+            --format RspecJunitFormatter \
+            --out /tmp/test-results/rspec.xml \
+            --format progress \
+            $TEST_FILES
+
+    # collect reports
+    - store_test_results:
+        path: /tmp/test-results
+    - store_artifacts:
+        path: /tmp/test-results
+        destination: test-results
