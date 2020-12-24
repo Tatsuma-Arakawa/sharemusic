@@ -1,17 +1,20 @@
 FROM ruby:2.5.8
 
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
-    && apt-get install -y nodejs
+RUN apt-get update -qq && \
+    apt-get install -y build-essential \ 
+                       libpq-dev \        
+                       nodejs           
 
 RUN mkdir /sharemusic
-WORKDIR /sharemusic
 
-COPY Gemfile /sharemusic/Gemfile
-COPY Gemfile.lock /sharemusic/Gemfile.lock
+ENV APP_ROOT /sharemusic
+WORKDIR $APP_ROOT
+
+ADD ./Gemfile $APP_ROOT/Gemfile
+ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
 
 RUN bundle install
-COPY . /sharemusic
+ADD . $APP_ROOT
 
 RUN apt-get install -y vim
 

@@ -6,8 +6,7 @@ jobs:
       environment:
         - BUNDLER_VERSION: 1.7.3
         - RAILS_ENV: 'test'
-        - MYSQL_USERNAME: 'root'
-        - MYSQL_PASSWORD: 'password'
+        
     - image: circleci/mysql:5.7
       environment:
         - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
@@ -53,7 +52,7 @@ jobs:
           TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
             circleci tests split --split-by=timings)"
 
-          bundle exec rspec \
+           bundle exec rspec \
             --format progress \
             --format RspecJunitFormatter \
             --out /tmp/test-results/rspec.xml \
