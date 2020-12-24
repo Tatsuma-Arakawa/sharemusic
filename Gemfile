@@ -50,6 +50,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'chromedriver-helper'
   gem 'database_rewinder'
+  gem 'rspec_junit_formatter'
 end
 
 group :production do

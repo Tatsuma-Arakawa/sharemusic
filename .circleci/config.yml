@@ -12,11 +12,8 @@ jobs:
         - MYSQL_ROOT_HOST: '127.0.0.1'
         - MYSQL_USERNAME: 'root'
         - MYSQL_PASSWORD: 'password'
-        - S3_ACCESS_KEY_ID: 'AKIAXCPGPWN5YDX2BJLP'
-        - S3_SECRET_ACCESS_KEY: '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'
 
     working_directory: ~/sharemusic 
-
 
     steps:
     - checkout
@@ -50,7 +47,17 @@ jobs:
     # run tests!
     - run:
         name: Run rspec
-        command: docker-compose exec web rspec
+        command: |
+          mkdir /tmp/test-results
+          TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+            circleci tests split --split-by=timings)"
+
+          docker-compose exec web rspec \
+            --format progress \
+            --format RspecJunitFormatter \
+            --out /tmp/test-results/rspec.xml \
+            --format progress \
+            $TEST_FILES
 
     # collect reports
     - store_test_results:
