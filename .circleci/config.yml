@@ -15,10 +15,10 @@ jobs:
           name: sleep for waiting launch db
           command: sleep 1
       - run:
-          name: "before_test: setup db"
+          name: "before_spec: setup db"
           command: docker-compose run web rails db:create db:migrate
       - run:
-          name: test
+          name: spec
           command: docker-compose run web rspec
       - run:
           name: docker-compose down
