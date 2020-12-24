@@ -49,7 +49,7 @@ jobs:
         command: |
           mkdir /tmp/test-results
 
-          bundle exec rspec \
+          docker-compose run web rspec \
             --format progress \
             --format RspecJunitFormatter \
             --out /tmp/test-results/rspec.xml \
