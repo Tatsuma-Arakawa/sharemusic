@@ -75,7 +75,7 @@ jobs:
       - checkout
       - run:
           name: 'Install Heroku CLI, if necessary'
-      command: |
+          command: |
             if [[ $(command -v heroku) == "" ]]; then
               curl https://cli-assets.heroku.com/install.sh | sh
             else
