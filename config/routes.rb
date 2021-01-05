@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'notifications/index'
   root 'pages#home'
+  get 'notifications/index'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     passwords: 'users/passwords',
