@@ -91,14 +91,7 @@ jobs:
       - run:
           name: heroku maintenance off
           command: heroku maintenance:off --app ${HEROKU_APP_NAME}
-      - run:
-          name: Run post-deploy tasks
-          command: |
-            heroku config:set AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
-            heroku config:set SPOTIFY_CLIENT_ID=$SPOTIFY_CLIENT_ID SPOTIFY_SECRET_ID=$SPOTIFY_SECRET_ID
-            heroku config:set HEROKU_API_KEY=$HEROKU_API_KEY
-            heroku config:set HEROKU_APP_NAME=$HEROKU_APP_NAME	
-            heroku config:set MYSQL_PASSWORD=$MYSQL_PASSWORD MYSQL_USERNAME=$MYSQL_USERNAME
+
 
 workflows:
   version: 2.1
