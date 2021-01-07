@@ -54,7 +54,7 @@ group :test do
   gem 'rspec_junit_formatter'
 end
 
-group :production do
+group :production, :staging do
   gem 'unicorn', '5.4.1'
 end
 
