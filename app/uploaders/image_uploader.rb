@@ -6,7 +6,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def default_url(*args)
-    "default.jpg"
+    "/images/default.jpg"
   end
 
   def extension_whitelist
