@@ -12,7 +12,7 @@ stdout_path $std_log
 timeout $timeout
 listen  $listen
 pid $pid
-# loading booster
+#loading booster
 preload_app true
 # before starting processes
 before_fork do |server, worker|
