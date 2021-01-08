@@ -28,4 +28,8 @@ end
 # after finishing processes
 after_fork do |server, worker|
   defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> 90b8ba53c83e7bc0bf2e0ef79cf0acc6159a7686
