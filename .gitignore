@@ -20,8 +20,8 @@
 /node_modules
 /yarn-error.log
 
-/public/uploads
-/public/assets
+/public/*
+!/public/.images
 .byebug_history
 /config/master.key
 .DS_Store
