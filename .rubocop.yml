@@ -17,3 +17,4 @@ AllCops:
     - 'app/controllers/users_controller.rb'
     - 'app/helpers/notifications_helper.rb'
     - 'app/models/notification.rb'
+    - 'config/unicorn.conf.rb'
