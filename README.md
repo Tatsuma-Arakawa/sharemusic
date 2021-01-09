@@ -1,5 +1,5 @@
 # Sharemusic
-https://sharemusictokyo.herokuapp.com
+https://www.sharemusictokyo.com
 
 音楽アルバムのレビューを様々な人とシェア出来るサービスです。
 
@@ -23,14 +23,15 @@ https://sharemusictokyo.herokuapp.com
 * 操作方法がわかりやすいUIデザインを意識しました。
 * Spotify APIを使用し簡単にレビューページを作成出来るようにしました。
 
-# 使用言語
+# 使用技術
 フロントエンド(javascript, jQuery, HTML/CSS, Sass)<br>
 バックエンド(Ruby on Rails5.2, Spotify API)<br>
 テスト(RSpec, FactoryBot, Capybara)<br>
 データベース(MySQL)<br>
 コンテナ(Docker, docker-compose)<br>
 開発環境(MacOS, VScode, Git, GitHub, bash)<br>
-本番環境(heroku, S3)
+本番環境 AWS(VPC, EC2, S3, RDS, Route53, IAM, ELB, ACM)
+CircleCi
 
 # 機能
 ### アルバム検索
@@ -59,16 +60,8 @@ https://sharemusictokyo.herokuapp.com
 * レスポンシブ対応<br>
 * ハンバーガーメニュー
 
-# 懸念点
-* デプロイ先がheroku<br>
-* CircleCI未導入<br>
-* テストの数、内容<br>
-* UI<br>
-* 機能数
-
 # 今後の課題
-* デプロイ先をAWSに変更<br>
-* CircleCIの導入<br>
+* 自動デプロイ導入<br>
 * テストの熟練<br>
 * 非同期通信で動かせる場所を増やし、感覚的に操作が出来るようなUIに改善<br>
 * レビューを書きたくなる機能の追加
