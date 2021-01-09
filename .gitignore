@@ -21,6 +21,7 @@
 /yarn-error.log
 
 /public/uploads
+/public/assets
 .byebug_history
 /config/master.key
 .DS_Store
