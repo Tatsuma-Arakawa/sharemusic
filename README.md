@@ -30,7 +30,7 @@ https://www.sharemusictokyo.com
 データベース(MySQL)<br>
 コンテナ(Docker, docker-compose)<br>
 開発環境(MacOS, VScode, Git, GitHub, bash)<br>
-本番環境 AWS(VPC, EC2, S3, RDS, Route53, IAM, ELB, ACM)
+本番環境 AWS(VPC, EC2, S3, RDS, Route53, IAM, ELB, ACM)<br>
 CircleCi
 
 # 機能
