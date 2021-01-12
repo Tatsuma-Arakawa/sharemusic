@@ -13,7 +13,7 @@ https://www.sharemusictokyo.com
 曲はもちろん、アルバムの曲順や、ジャケットのデザインなど<br>
 アーティストのこだわりを深く理解しようとする姿勢を持つことで<br>
 音楽を聴く行為がさらに楽しいものになって欲しいという思いがあります。
-![](public/images/readme.png)
+![](public/images/infrastructure.png)
 
 # インフラ構成図
 ![](public/images/Untitled Diagram.drawio)
