@@ -15,6 +15,9 @@ https://www.sharemusictokyo.com
 音楽を聴く行為がさらに楽しいものになって欲しいという思いがあります。
 ![](public/images/readme.png)
 
+# インフラ構成図
+![](public/images/Untitled Diagram.drawio)
+
 ### このアプリを開発した理由
 アルバムについて考えたことや感じたことを文字起こしし、それをシェアすることにより<br>
 1曲1曲やアルバム1枚を深く理解しようとする姿勢の向上に繋がるのでは？という考えから開発しました。
