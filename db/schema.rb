@@ -2,24 +2,24 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2020_12_11_050148) do
 
-  create_table "album_boards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "album_boards", charset: "utf8", force: :cascade do |t|
     t.string "albums", null: false
     t.text "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "board_reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "board_reviews", charset: "utf8", force: :cascade do |t|
     t.text "content", null: false
     t.bigint "album_board_id", null: false
     t.bigint "user_id", null: false
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_12_11_050148) do
     t.string "title", null: false
   end
 
-  create_table "entries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "entries", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "room_id"
     t.datetime "created_at", null: false
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_12_11_050148) do
     t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
-  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "favorites", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "board_review_id", null: false
     t.datetime "created_at", null: false
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_12_11_050148) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
-  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "messages", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "room_id"
     t.text "content"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_12_11_050148) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "notifications", charset: "utf8", force: :cascade do |t|
     t.integer "visitor_id"
     t.integer "visited_id"
     t.integer "room_id"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_12_11_050148) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "relationships", charset: "utf8", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
     t.datetime "created_at", null: false
@@ -79,13 +79,13 @@ ActiveRecord::Schema.define(version: 2020_12_11_050148) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
-  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "rooms", charset: "utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

@@ -1,3 +1,8 @@
+docker-compose up
+loclhost:3000
+
+docker-compose web bash
+
 # Sharemusic
 https://www.sharemusictokyo.com
 
