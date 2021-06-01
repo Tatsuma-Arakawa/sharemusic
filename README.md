@@ -1,10 +1,8 @@
-docker-compose up
-loclhost:3000
-
-docker-compose web bash
-
+<!-- docker-compose up
+docker-compose web bash -->
 # Sharemusic
-https://www.sharemusictokyo.com
+<!-- https://www.sharemusictokyo.com -->
+https://sharemusictokyo.herokuapp.com/
 
 音楽アルバムのレビューを様々な人と共有出来るSNSです。
 
@@ -20,8 +18,8 @@ https://www.sharemusictokyo.com
 音楽を聴く行為がさらに楽しいものになって欲しいという思いがあります。
 ![](public/images/readme.png)
 
-# インフラ構成図
-![](public/images/infrastructure.png)
+<!-- # インフラ構成図
+![](public/images/infrastructure.png) -->
 
 ### このアプリを開発した理由
 アルバムについて考えたことや感じたことを文字起こしし、それを共有することにより<br>
