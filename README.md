@@ -1,5 +1,5 @@
 <!-- docker-compose up
-docker-compose web bash -->
+docker-compose exec web bash -->
 # Sharemusic
 <!-- https://www.sharemusictokyo.com -->
 https://sharemusictokyo.herokuapp.com/
