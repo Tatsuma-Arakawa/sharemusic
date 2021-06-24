@@ -1,8 +1,7 @@
 <!-- docker-compose up
 docker-compose exec web bash -->
 # Sharemusic
-<!-- https://www.sharemusictokyo.com -->
-https://sharemusictokyo.herokuapp.com/
+http://www.sharemusictokyo.com
 
 音楽アルバムのレビューを様々な人と共有出来るSNSです。
 
@@ -31,12 +30,12 @@ https://sharemusictokyo.herokuapp.com/
 
 # 使用技術
 フロントエンド(javascript, jQuery, HTML/CSS, Sass)<br>
-バックエンド(Ruby on Rails5.2, Spotify API)<br>
+バックエンド(Ruby on Rails6.1, Spotify API)<br>
 テスト(RSpec, FactoryBot, Capybara)<br>
 データベース(MySQL)<br>
 コンテナ(Docker, docker-compose)<br>
 開発環境(MacOS, VScode, Git, GitHub, bash)<br>
-本番環境 AWS(VPC, EC2, S3, RDS, Route53, IAM, ELB, ACM)<br>
+本番環境 AWS(VPC, EC2, S3, Route53, IAM), Nginx, Puma<br>
 CircleCi(自動テスト)
 
 # 機能
@@ -68,7 +67,5 @@ CircleCi(自動テスト)
 
 # 今後の課題
 * 自動デプロイ導入
-* テストの熟練
-* 非同期通信で動かせる場所を増やし、感覚的に操作が出来るようなUIに改善
-* レビューを書きたくなる機能の追加
-
+* SPA化
+* JavaScriptからTypeScriptに移行
